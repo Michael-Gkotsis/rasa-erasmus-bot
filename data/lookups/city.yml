@@ -1,1 +1,20 @@
-
+version: "3.1"
+nlu:
+- lookup: city
+  examples: |
+    - Amsterdam
+    - Barcelona
+    - Berlin
+    - Brussels
+    - Budapest
+    - Copenhagen
+    - Dublin
+    - Lisbon
+    - Madrid
+    - Munich
+    - Paris
+    - Prague
+    - Rome
+    - Stockholm
+    - Vienna
+    - Warsaw
