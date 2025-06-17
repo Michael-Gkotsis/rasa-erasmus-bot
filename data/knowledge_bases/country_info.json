@@ -1,0 +1,122 @@
+{
+    "germany": {
+        "name": "Germany", "capital": "Berlin", "language": "German", "currency": "Euro (EUR)",
+        "popular_universities": ["Technical University of Munich", "Heidelberg University", "Humboldt University"],
+        "cost_of_living": "Medium-High (€800-1200/month)", "cultural_highlights": "Rich history, excellent public transport, strong engineering programs.", "climate": "Temperate continental climate.",
+        "erasmus_info": "Germany is one of the most popular Erasmus destinations with over 40,000 international students yearly. Many programs offered in English, especially at master's level."
+    },
+    "spain": {
+        "name": "Spain", "capital": "Madrid", "language": "Spanish", "currency": "Euro (EUR)",
+        "popular_universities": ["University of Barcelona", "Complutense University Madrid", "University of Granada"],
+        "cost_of_living": "Medium (€600-900/month)", "cultural_highlights": "Vibrant culture, excellent food, beautiful architecture, Mediterranean lifestyle.", "climate": "Mediterranean and continental.",
+        "erasmus_info": "Spain hosts the highest number of Erasmus students. Great for learning Spanish and experiencing diverse regional cultures."
+    },
+    "france": {
+        "name": "France", "capital": "Paris", "language": "French", "currency": "Euro (EUR)",
+        "popular_universities": ["Sorbonne University", "École Normale Supérieure", "Sciences Po"],
+        "cost_of_living": "High (€900-1400/month)", "cultural_highlights": "Art, fashion, cuisine, literature, historical monuments.", "climate": "Oceanic, Mediterranean, and continental.",
+        "erasmus_info": "France offers world-class education and cultural experiences. Many programs available in English, especially in business and international relations."
+    },
+    "italy": {
+        "name": "Italy", "capital": "Rome", "language": "Italian", "currency": "Euro (EUR)",
+        "popular_universities": ["University of Bologna", "Sapienza University of Rome", "Bocconi University"],
+        "cost_of_living": "Medium (€700-1000/month)", "cultural_highlights": "Renaissance art, ancient history, culinary traditions, fashion.", "climate": "Mediterranean.",
+        "erasmus_info": "Italy combines excellent academics with incredible cultural heritage. Strong programs in arts, architecture, and humanities."
+    },
+    "netherlands": {
+        "name": "Netherlands", "capital": "Amsterdam", "language": "Dutch", "currency": "Euro (EUR)",
+        "popular_universities": ["University of Amsterdam", "Delft University of Technology", "Erasmus University Rotterdam"],
+        "cost_of_living": "High (€900-1300/month)", "cultural_highlights": "Liberal culture, cycling, art museums, innovation.", "climate": "Oceanic.",
+        "erasmus_info": "Netherlands offers many English-taught programs and is known for innovation and research. Very international environment."
+    },
+    "sweden": {
+        "name": "Sweden", "capital": "Stockholm", "language": "Swedish", "currency": "Swedish Krona (SEK)",
+        "popular_universities": ["KTH Royal Institute of Technology", "Lund University", "Stockholm University"],
+        "cost_of_living": "High (€1000-1500/month)", "cultural_highlights": "Design, innovation, nature, sustainability, work-life balance.", "climate": "Continental and subarctic.",
+        "erasmus_info": "Sweden offers high-quality education with focus on innovation and sustainability. Many courses taught in English."
+    },
+    "portugal": {
+        "name": "Portugal", "capital": "Lisbon", "language": "Portuguese", "currency": "Euro (EUR)",
+        "popular_universities": ["University of Porto", "University of Lisbon", "University of Coimbra"],
+        "cost_of_living": "Low-Medium (€500-800/month)", "cultural_highlights": "Maritime history, beautiful coastline, friendly people, emerging tech scene.", "climate": "Mediterranean.",
+        "erasmus_info": "Portugal is becoming increasingly popular. Great weather, affordable living, and growing number of English programs."
+    },
+    "poland": {
+        "name": "Poland", "capital": "Warsaw", "language": "Polish", "currency": "Polish Złoty (PLN)",
+        "popular_universities": ["University of Warsaw", "Jagiellonian University", "Warsaw University of Technology"],
+        "cost_of_living": "Low (€400-700/month)", "cultural_highlights": "Rich history, beautiful old towns, hearty cuisine, strong academic traditions.", "climate": "Continental.",
+        "erasmus_info": "Poland offers excellent value for money with high-quality education. Growing number of English-taught programs, especially in Krakow and Warsaw."
+    },
+    "czech republic": {
+        "name": "Czech Republic", "capital": "Prague", "language": "Czech", "currency": "Czech Koruna (CZK)",
+        "popular_universities": ["Charles University", "Czech Technical University", "Masaryk University"],
+        "cost_of_living": "Low-Medium (€500-800/month)", "cultural_highlights": "Medieval architecture, beer culture, classical music, fairy-tale castles.", "climate": "Continental.",
+        "erasmus_info": "Czech Republic, especially Prague, is a popular destination for its beautiful architecture and affordable living."
+    },
+    "austria": {
+        "name": "Austria", "capital": "Vienna", "language": "German", "currency": "Euro (EUR)",
+        "popular_universities": ["University of Vienna", "Vienna University of Technology", "University of Salzburg"],
+        "cost_of_living": "Medium-High (€800-1200/month)", "cultural_highlights": "Classical music, Alpine scenery, coffee culture, imperial history.", "climate": "Continental.",
+        "erasmus_info": "Austria offers high-quality education in a beautiful setting. Strong programs in music, arts, and sciences."
+    },
+    "ireland": {
+        "name": "Ireland", "capital": "Dublin", "language": "English, Irish", "currency": "Euro (EUR)",
+        "popular_universities": ["Trinity College Dublin", "University College Dublin", "National University of Ireland, Galway"],
+        "cost_of_living": "High (€1000-1500/month)", "cultural_highlights": "Friendly locals, pub culture, literary history, stunning landscapes.", "climate": "Temperate oceanic.",
+        "erasmus_info": "An excellent choice for native English speakers, offering a welcoming atmosphere and strong programs in literature and technology."
+    },
+    "switzerland": {
+        "name": "Switzerland", "capital": "Bern", "language": "German, French, Italian", "currency": "Swiss Franc (CHF)",
+        "popular_universities": ["ETH Zurich", "EPFL", "University of Geneva"],
+        "cost_of_living": "Very High (€1500-2200/month)", "cultural_highlights": "Stunning alpine scenery, high quality of life, precision engineering.", "climate": "Alpine and continental.",
+        "erasmus_info": "Switzerland participates as a partner country. It's expensive but offers world-class education, especially in science and engineering."
+    },
+    "denmark": {
+        "name": "Denmark", "capital": "Copenhagen", "language": "Danish", "currency": "Danish Krone (DKK)",
+        "popular_universities": ["University of Copenhagen", "Technical University of Denmark", "Aarhus University"],
+        "cost_of_living": "High (€1000-1400/month)", "cultural_highlights": "Design, cycling culture, 'hygge', high standard of living.", "climate": "Temperate oceanic.",
+        "erasmus_info": "Known for its modern design, progressive social policies, and high-quality, research-based education."
+    },
+    "hungary": {
+        "name": "Hungary", "capital": "Budapest", "language": "Hungarian", "currency": "Hungarian Forint (HUF)",
+        "popular_universities": ["Eötvös Loránd University", "Budapest University of Technology and Economics", "Semmelweis University"],
+        "cost_of_living": "Low (€450-700/month)", "cultural_highlights": "Historic thermal baths, stunning architecture, vibrant nightlife.", "climate": "Continental.",
+        "erasmus_info": "Budapest is a major student hub, offering an affordable and exciting experience with a rich history."
+    },
+    "norway": {
+        "name": "Norway", "capital": "Oslo", "language": "Norwegian", "currency": "Norwegian Krone (NOK)",
+        "popular_universities": ["University of Oslo", "Norwegian University of Science and Technology (NTNU)", "University of Bergen"],
+        "cost_of_living": "Very High (€1200-2000/month)", "cultural_highlights": "Fjords, northern lights, outdoor activities, high standard of living.", "climate": "Temperate along coast, continental inland.",
+        "erasmus_info": "Ideal for nature lovers, Norway offers excellent programs in environmental science, engineering, and social sciences."
+    },
+    "belgium": {
+        "name": "Belgium", "capital": "Brussels", "language": "Dutch, French, German", "currency": "Euro (EUR)",
+        "popular_universities": ["KU Leuven", "Ghent University", "Université libre de Bruxelles (ULB)"],
+        "cost_of_living": "Medium-High (€850-1200/month)", "cultural_highlights": "International hub (EU capital), medieval towns, comic strips, waffles and chocolate.", "climate": "Temperate oceanic.",
+        "erasmus_info": "A multilingual country at the heart of Europe, perfect for students of politics, international relations, and languages."
+    },
+     "greece": {
+        "name": "Greece", "capital": "Athens", "language": "Greek", "currency": "Euro (EUR)",
+        "popular_universities": ["National and Kapodistrian University of Athens", "Aristotle University of Thessaloniki", "National Technical University of Athens"],
+        "cost_of_living": "Low-Medium (€600-900/month)", "cultural_highlights": "Ancient history, mythology, beautiful islands, Mediterranean cuisine.", "climate": "Mediterranean.",
+        "erasmus_info": "Offers a unique blend of ancient history and modern life, with affordable living costs and a welcoming culture."
+    },
+    "finland": {
+        "name": "Finland", "capital": "Helsinki", "language": "Finnish, Swedish", "currency": "Euro (EUR)",
+        "popular_universities": ["University of Helsinki", "Aalto University", "Tampere University"],
+        "cost_of_living": "High (€900-1300/month)", "cultural_highlights": "Nature and forests, sauna culture, modern design, world-class education system.", "climate": "Continental and subarctic.",
+        "erasmus_info": "A global leader in education and technology, offering a unique cultural experience and high-quality English-taught courses."
+    },
+    "slovenia": {
+        "name": "Slovenia", "capital": "Ljubljana", "language": "Slovenian", "currency": "Euro (EUR)",
+        "popular_universities": ["University of Ljubljana", "University of Maribor"],
+        "cost_of_living": "Medium (€600-900/month)", "cultural_highlights": "Mountain and coastal scenery, outdoor sports, green capital city.", "climate": "Continental and Mediterranean.",
+        "erasmus_info": "A small, beautiful country offering a diverse landscape for students who love nature and outdoor activities."
+    },
+    "croatia": {
+        "name": "Croatia", "capital": "Zagreb", "language": "Croatian", "currency": "Euro (EUR)",
+        "popular_universities": ["University of Zagreb", "University of Split"],
+        "cost_of_living": "Medium (€600-900/month)", "cultural_highlights": "Stunning Adriatic coastline, historic cities, national parks.", "climate": "Mediterranean and continental.",
+        "erasmus_info": "A popular tourist destination that also offers a great Erasmus experience, especially during the summer semester."
+    }
+}
