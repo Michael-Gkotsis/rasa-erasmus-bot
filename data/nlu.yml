@@ -1,1 +1,1626 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - goodafternoon
+    - what's up
+    - yo
+    - howdy
+    - nice to meet you
+    - pleasure to meet you
+    - hey bot
+    - hello assistant
+    - hi there
+    - greetings
+    - a good day to you
+    - morning
+    - afternoon
+    - evening
+    - hey, how's it going?
+    - hey, can you help?
+    - let's start
+    - let's begin
+    - hiya
+    - hello friend
+    - hi assistant
+    - start conversation
+    - just saying hi
+    - how are you doing?
+    - what's good?
+    - hey, you there?
+    - hello, anyone home?
+    - good day
+    - a pleasant day to you
+    - how do you do?
+    - hey man
+    - what's happening?
+    - let's get started
+    - let's get this show on the road
+    - hello chatbot
+    - alright, let's do this
+    - okay, I'm ready
+    - fire away
+    - I have a question
+    - can I ask something?
+    - I need some help
+    - hello, I have a question about Erasmus
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good bye
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - thanks and bye
+    - ok thanks bye
+    - farewell
+    - take care
+    - catch you later
+    - talk to you later
+    - I'm done now
+    - that's all for now
+    - finished
+    - exit
+    - quit
+    - I have to go
+    - speak to you soon
+    - have a good one
+    - all the best
+    - cheers
+    - ciao
+    - adios
+    - I'm out
+    - gotta go
+    - that'll be all
+    - thanks, that's it
+    - ok, I'm finished
+    - end conversation
+    - please disconnect
+    - that's everything I needed
+    - thanks for your help, bye
+    - appreciate the help, goodbye
+    - I think I'm done
+    - that's all from me
+    - I'm good, thanks
+    - nothing else for now
+    - see ya
+    - later
+    - bye for now
+    - I've got everything I need
+    - you've been very helpful, bye
+    - end of session
+    - disconnect now
+    - that's the last question
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - yeah
+    - yep
+    - sure
+    - absolutely
+    - for sure
+    - ok
+    - sure thing
+    - definitely
+    - go ahead
+    - continue
+    - let's do that
+    - Ok continue now
+    - sounds great
+    - proceed
+    - that is correct
+    - yes, that's what I meant
+    - you got it right
+    - that's the one
+    - affirmative
+    - I agree
+    - totally
+    - you bet
+    - right on
+    - exactly
+    - precisely
+    - that's it
+    - yes, go on
+    - uh-huh
+    - okay, I understand
+    - I see, yes
+    - confirm
+    - I confirm
+    - that is what I want
+    - yes, that's correct
+    - yes, let's proceed with that
+    - you are right
+    - that is true
+    - yes, I would like that
+    - please go ahead
+    - ok, do it
+    - yes, I want to continue
+    - that's right
+    - yes, tell me about that
+    - ok, that would be helpful
+    - yes please tell me about that
+    - yeah, tell me more
+    - okay, let's hear it
+    - that sounds good, please continue
+    - I'm interested, go on
+    - yes, I would like to know more about that
+    - sure, let's explore that topic
+    - that's a good suggestion, please elaborate
+    - okay, let's talk about that now
+    - yes, please provide more details
+    - I'd love to hear more, yes
+    - great, tell me about it
+    - ok, please proceed with that information
+    - yeah, that would be great
+    - sure, give me the details
+    - I'm listening, tell me more
+    - that's exactly what I need, please continue
+    - yes, I'm interested in that
+    - please, expand on that
+    - okay, let's dive into that
+    - yes, that's a good idea
+    - sure, why not
+    - I'm curious, tell me more
+    - let's do it, tell me about it
+    - that sounds interesting, yes
+    - okay, I'm ready for that information
+    - yes please, that would be very helpful
+    - alright, let's discuss that
+    - I'd appreciate more information on that
+    - yes, let's go over that
+    - okay, I'm following, tell me more
+    - sure, I'd like to know about that
+    - yes, that's a relevant topic
+    - good, let's focus on that
+    - okay, please explain that further
+    - yes, please elaborate on that point
+    - I'm intrigued, please continue
+    - that would be useful, yes
+    - okay, let's proceed with your suggestion
+    - sure, I'm open to that
+    - yes, let's continue on that path
+    - that's a great next step, tell me more
+    - okay, I'd like to hear about that
+    - yes, I want to know more
+    - please, tell me more about what you just said
+    - sure, I'm interested in learning about that
+    - yes, that topic is important to me
+    - yes please
+    - sure, do that
+    - yes, I'd like that
+    - please do
+    - that would be great
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - nope
+    - no thanks
+    - nah
+    - not interested
+    - skip that
+    - not now
+    - maybe later
+    - I'd rather not
+    - that's not what I want
+    - absolutely not
+    - no, that's wrong
+    - incorrect
+    - that's not it
+    - wrong
+    - definitely not
+    - not at all
+    - I disagree
+    - I object
+    - no, cancel that
+    - please stop
+    - let's not
+    - that isn't right
+    - I don't want to
+    - no, go back
+    - that's not what I asked for
+    - I've changed my mind
+    - actually, no
+    - I'd prefer not to
+    - let's skip this part
+    - move on from this
+    - I don't want that
+    - not this time
+    - some other time perhaps
+    - I'm not interested in that
+    - that is not helpful
+    - no, that's not it
+    - don't do that
+    - no, I want something else
+    - I want to do something different
+    - that is not the topic
+    - no thank you
+    - I'm afraid not
+    - not for me
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - what are you?
+    - Wait are you a bot?
+    - I want to know if you are a real person
+    - what is your nature?
+    - are you an AI?
+    - are you a person or a program?
+    - is this a real person?
+    - am I speaking to a machine?
+    - are you using artificial intelligence?
+    - you're not human, are you?
+    - I'm curious, are you a bot?
+    - tell me if you are a robot
+    - you are a chatbot, right?
+    - are you just code?
+    - I bet you're a bot
+    - you sound like a bot
+    - this is an automated response, isn't it?
+    - are you a conscious being?
+    - are you sentient?
+    - how do I know you're not a person?
+    - are you a computer program?
+    - what species are you?
+    - I'm talking to software, right?
+    - just confirming, you are a bot?
+    - are you a virtual assistant?
+    - you're not a person, correct?
+    - are you an algorithm?
+    - do you have a physical form?
+    - are you a product of Google?
+    - I want to know your identity
+    - your identity is a bot, yes?
+    - are you running on a server?
+    - you're a language model, aren't you?
+    - this feels like I'm talking to a bot
+    - are you a real human being?
+    - am I interacting with a bot?
+    - is this conversation with a bot?
+    - are you a human operator?
+    - are you a piece of software?
+    - you're not a person, are you?
+    - what is your operational status?
+    - you are a virtual entity, correct?
+    - are you based on code?
+    - are you an automated system?
+
+- intent: ask_erasmus_info
+  examples: |
+    - what is erasmus
+    - tell me about erasmus
+    - erasmus program information
+    - what is erasmus plus
+    - explain erasmus
+    - erasmus overview
+    - what does erasmus offer
+    - erasmus program details
+    - can you give me a summary of the erasmus program?
+    - I want to understand what erasmus is
+    - could you detail the Erasmus+ programme?
+    - give me the lowdown on Erasmus
+    - I'm new to this, what's Erasmus all about?
+    - what are the main goals of the Erasmus program?
+    - describe the Erasmus initiative
+    - can you provide an introduction to Erasmus+?
+    - I've heard of Erasmus, can you tell me more?
+    - what opportunities does Erasmus provide?
+    - explain the concept of Erasmus
+    - I need a general explanation of the Erasmus program
+    - what is the purpose of Erasmus+?
+    - give me an overview of what Erasmus entails
+    - what's the deal with Erasmus?
+    - who started the Erasmus program?
+    - what is the history of Erasmus?
+    - tell me about the different parts of Erasmus+
+    - what activities are funded by Erasmus?
+    - how does the Erasmus program work?
+    - I'm looking for a basic rundown of the Erasmus scheme
+    - can you brief me on the Erasmus+ program?
+    - what are the core components of Erasmus?
+    - tell me the basics of the Erasmus program
+    - I would like to know more about the Erasmus project
+    - can you give me some background on Erasmus?
+    - what should I know about Erasmus?
+    - just the basics about Erasmus please
+    - could you tell me about the Erasmus exchange program?
+    - is Erasmus only for students?
+    - what does Erasmus stand for?
+    - I need information on the Erasmus initiative
+    - what's the difference between Erasmus and Erasmus+?
+    - can you clarify what the Erasmus program is?
+    - please provide details about the Erasmus program
+    - tell me everything about Erasmus
+    - give me the full story on Erasmus
+    - I'm interested in learning about Erasmus
+    - what kind of program is Erasmus?
+    - who is the Erasmus program for?
+    - what is the significance of the Erasmus program?
+    - can you give me the main points of the Erasmus program?
+
+- intent: ask_eligibility
+  examples: |
+    - am I eligible for erasmus
+    - erasmus eligibility requirements
+    - who can apply for erasmus
+    - erasmus eligibility criteria
+    - can I apply for erasmus
+    - what are the requirements to be eligible
+    - eligibility for erasmus plus
+    - what do I need to be eligible
+    - Am i eligible for erasmus as a Greek?
+    - check my eligibility
+    - what are the conditions to participate?
+    - do I qualify for the erasmus program?
+    - who is eligible to take part in Erasmus+?
+    - what are the prerequisites for applying to Erasmus?
+    - can anyone apply for an Erasmus grant?
+    - tell me about the eligibility rules for Erasmus
+    - what criteria must I meet to be eligible?
+    - I want to know if I can apply
+    - am I a suitable candidate for Erasmus?
+    - what are the participation requirements?
+    - are there any restrictions on who can apply?
+    - who qualifies for Erasmus funding?
+    - what do I need to have to be able to apply?
+    - tell me who can participate in Erasmus
+    - are there nationality requirements for Erasmus?
+    - do I need to be a student to be eligible?
+    - what is the eligibility status for non-EU citizens?
+    - I'd like to check the eligibility conditions
+    - can you list the eligibility requirements for me?
+    - are postgraduate students eligible for Erasmus?
+    - what makes a person eligible for Erasmus+?
+    - am I old enough to apply for Erasmus?
+    - are there age limits for Erasmus eligibility?
+    - can I participate in Erasmus if I'm not in university?
+    - what are the academic requirements for eligibility?
+    - I need to know the eligibility criteria for traineeships
+    - are there different eligibility rules for different countries?
+    - can you tell me if I fit the profile for an Erasmus participant?
+    - my university is not in the EU, can I still be eligible?
+    - who is excluded from applying to Erasmus?
+    - what are the basic requirements to get into the program?
+    - I want to understand the eligibility part
+    - can you help me figure out if I'm eligible?
+    - is there a way to check my eligibility?
+    - who gets priority for Erasmus placements?
+    - are there any exceptions to the eligibility rules?
+    - what are the terms and conditions for eligibility?
+    - I need to know the specific criteria for eligibility
+
+- intent: ask_application_process
+  examples: |
+    - how to apply for erasmus
+    - erasmus application process
+    - application steps
+    - how do I apply
+    - erasmus application procedure
+    - when to apply for erasmus
+    - application deadline
+    - how to get erasmus scholarship
+    - what is the procedure for applying?
+    - guide me through the application
+    - what are the deadlines for the application?
+    - tell me about the application
+    - where do I submit my application for Erasmus?
+    - what documents are needed for the Erasmus application?
+    - can you explain the steps to apply for Erasmus+?
+    - is there an online portal for Erasmus applications?
+    - what is the timeline for the application process?
+    - how do I start my application for an Erasmus grant?
+    - I need help with the Erasmus application
+    - walk me through the application process
+    - what's the first step in applying for Erasmus?
+    - are there any fees for applying to Erasmus?
+    - when is the application period for Erasmus?
+    - how does the selection process work after applying?
+    - I'm ready to apply, what do I do next?
+    - can you show me where to find the application form?
+    - what's the deadline for the upcoming semester?
+    - is the application process competitive?
+    - what are the key dates for the Erasmus application?
+    - do I apply through my home university?
+    - I want to know everything about the application procedure
+    - what information do I need to provide in the application?
+    - how long does the application process take?
+    - can you give me a checklist for the application?
+    - are there any common mistakes to avoid in the application?
+    - who reviews the Erasmus applications?
+    - I missed the deadline, can I still apply?
+    - is the application process the same for all countries?
+    - I need guidance on filling out the application form
+    - where can I find tutorials on how to apply?
+    - what is the role of the learning agreement in the application?
+    - how should I write my motivation letter for the application?
+    - who can I contact for help with my application?
+    - I have a question about a specific part of the application
+    - what happens after I submit my application?
+    - when will I be notified about the application result?
+    - can I apply to multiple universities at the same time?
+    - I'd like to know more about the application stages
+    - what's the procedure for Erasmus Mundus applications?
+    - is the application process for traineeships different?
+
+- intent: ask_countries
+  examples: |
+    - which countries participate in erasmus
+    - erasmus countries list
+    - where can I study with erasmus
+    - participating countries
+    - erasmus destinations
+    - available countries
+    - countries in erasmus program
+    - what are the country options
+    - where can I go
+    - what are the destinations
+    - list the available places
+    - which nations are part of the erasmus program?
+    - can you give me a list of all the countries involved in Erasmus?
+    - what are the program countries for Erasmus+?
+    - are there partner countries outside of Europe?
+    - show me the map of Erasmus participating countries
+    - I want to see the full list of destinations
+    - what countries can I choose from for my exchange?
+    - is [Switzerland] a participating country?
+    - can I go to the [UK] with Erasmus?
+    - tell me all the possible countries I can travel to
+    - which countries are included in the Erasmus+ program?
+    - I'm looking for a list of eligible host countries
+    - what are the options for my Erasmus destination?
+    - can you enumerate the countries in the Erasmus network?
+    - are all EU countries part of the Erasmus program?
+    - I want to explore the different country choices
+    - can you filter the countries by region?
+    - what are the most popular Erasmus destinations?
+    - I need to know which countries I can select
+    - is it possible to go to a non-European country?
+    - give me the rundown of all available locations
+    - which countries have recently joined the Erasmus program?
+    - I need a comprehensive list of Erasmus+ partner countries
+    - can you tell me if [Canada] is an option?
+    - are there any restrictions on which countries I can go to?
+    - I'd like to browse the countries available
+    - what are my choices for an Erasmus placement?
+    - can you provide the official list of Erasmus+ countries?
+    - is the list of countries the same for studies and traineeships?
+    - I'm interested in the geographical scope of the Erasmus program
+    - show me all the places I could potentially study at
+    - can you display the Erasmus countries for me?
+    - what is the range of countries I can select from?
+    - I want to see the available Erasmus+ destinations
+    - what countries are currently active in the program?
+    - give me the list of countries where I can do my Erasmus
+    - are there any associated countries in the Erasmus program?
+    - I'm looking for the official list of Erasmus countries
+    - what are the geographical limitations of the program?
+
+- intent: ask_country_info
+  examples: |
+    - tell me about living in [Germany](country)
+    - give me general information about [Spain](country)
+    - what's student life like in [France](country)?
+    - can you describe what it's like in [Italy](country)?
+    - I want to know more about the culture in [Portugal](country)
+    - give me the details on what it's like to live in [Poland](country)
+    - what can you tell me about the [Netherlands](country)?
+    - how is the climate in [Sweden](country)?
+    - tell me about the culture in the [Czech Republic](country)
+    - what are the people like in [Portugal](country)?
+    - is it safe in [Poland](country)?
+    - tell me about [Berlin](city)
+    - how is student life in [Rome](city)?
+    - what's the weather like in [Madrid](city)?
+    - Tell me about [Estonia](country)
+    - Tell me about [Kyoto](city)
+    - I'm curious about the lifestyle in [Greece](country)
+    - what is there to know about [Austria](country)?
+    - give me a rundown of what it's like in [Belgium](country)
+    - describe the general vibe in [Finland](country)
+    - I'm considering [Hungary](country), what can you tell me?
+    - what are the main attractions for students in [Ireland](country)?
+    - tell me about the social life in [Copenhagen](city)
+    - I'd like some information about daily life in [Prague](city)
+    - how is the transportation system in [Warsaw](city)?
+    - tell me about the food culture in [Italy](country)
+    - give me some insights into living in [Norway](country)
+    - I want to know more about [Croatia](country) as a destination
+    - what's the typical student lifestyle in [Amsterdam](city)?
+    - can you provide details about the safety in [Portugal](country)?
+    - how do locals treat international students in [Germany](country)?
+    - tell me something interesting about [Finland](country)
+    - what is the general attitude of people in [Sweden](country)?
+    - describe the landscape and geography of [Norway](country)
+    - I'm interested in the history of [Athens](city)
+    - what is [Vienna](city) famous for?
+    - can you give me some fun facts about [Belgium](country)?
+    - what should I expect if I move to [Spain](country)?
+    - how are the public services in [France](country)?
+    - tell me about the traditions in [Poland](country)
+    - what is the environment like in [Iceland](country)?
+    - I need some general info about [Latvia](country)
+    - give me an overview of [Lithuania](country)
+    - what is student life like in [Bratislava](city)?
+    - what is the political situation in [Turkey](country)?
+    - can you tell me about the local customs in [Malta](country)?
+    - what's it like to live and study in [Cyprus](country)?
+    - give me some information about the city of [Dublin](city)
+    - how do people spend their free time in [Helsinki](city)?
+    - what are the main industries in [Luxembourg](country)?
+    - tell me about the architecture in [Budapest](city)
+    - what is the primary language spoken in [Bucharest](city)?
+    - I want to learn about the history of [Rome](city)
+    - what is the nightlife like in [Berlin](city)?
+
+- intent: ask_language_requirements
+  examples: |
+    - language requirements for erasmus
+    - do I need to speak the local language
+    - what language level is required
+    - are english courses available
+    - what about language support
+    - is a language certificate needed
+    - tell me about the OLS language course
+    - what about language?
+    - What are the language requirements?
+    - do I need to know German to study in [Germany](country)?
+    - what is the required proficiency in English?
+    - are there language prerequisites for the program?
+    - how do I prove my language skills?
+    - what kind of language test is accepted?
+    - is TOEFL or IELTS required?
+    - I don't speak the local language, is that a problem?
+    - can I take courses taught in English?
+    - what level of language competency do I need?
+    - tell me more about language assessments
+    - are there any mandatory language courses I have to take?
+    - what happens if my language skills are not good enough?
+    - do they offer language preparation courses?
+    - I need information on the Online Linguistic Support
+    - is there a minimum grade I need on my language certificate?
+    - my native language is Spanish, do I still need a certificate for [Spain](country)?
+    - are there exceptions to the language requirements?
+    - what are the specific language demands for my field of study?
+    - how can I improve my language skills before I go?
+    - what is the Common European Framework of Reference for Languages (CEFR)?
+    - do I need a B2 level in English?
+    - are there opportunities to learn the local language while I'm there?
+    - what are the language requirements for an Erasmus internship?
+    - do the language requirements vary by university?
+    - can you list the accepted language certificates?
+    - where can I find information about the language of instruction?
+    - is it possible to get a waiver for the language requirement?
+    - how important is the local language for daily life?
+    - I'm concerned about the language barrier
+    - what support is available for learning the language of my host country?
+    - tell me everything about the language rules
+    - are the language requirements strict?
+    - I have an old language certificate, is it still valid?
+    - do I need to get my certificate translated?
+    - what's the process for the OLS assessment?
+    - can I study in [France](country) if I only speak English?
+    - are there any free language resources available?
+    - my course is in English, do I need to know the local language at all?
+    - what if I fail the OLS language test?
+    - how can I demonstrate my language ability?
+    - what are the language criteria for Erasmus Mundus?
+    - I want to know about the linguistic preparation for my exchange
+    - do they check language skills during the interview?
+    - what are the best ways to learn the local language?
+
+- intent: ask_finances
+  examples: |
+    - erasmus funding
+    - how much money do I get
+    - erasmus grant amount
+    - what is the financial support
+    - tell me about scholarship money
+    - what is the erasmus stipend
+    - how much is the monthly allowance
+    - is there funding for living costs
+    - are there additional scholarships available
+    - can you give me a living expenses breakdown
+    - what are the cheapest countries to study in
+    - what are the most expensive destinations
+    - do you have any budget planning tips
+    - tell me about money transfer options
+    - are there student loans for erasmus
+    - what are the financial aid options
+    - how much would I spend in [six months](duration)?
+    - what's a [low](budget_range) budget for [Portugal](country)?
+    - show me a [medium](budget_range) cost estimate
+    - can I live on a [high](budget_range) budget in [France](country)
+    - what does a [low](budget_range) spending plan look like
+    - What are the living expenses?
+    - Are there any other scholarships I can get?
+    - what is the cost of living in [Spain](country)
+    - what is the cost of living in [Paris](city)?
+    - How much money do i get for erasmus in [greece](country)?
+    - What is the budget for living in [Greece](country)?
+    - What's the budget like there?
+    - How much is Erasmus grant in [France](country)?
+    - I need to calculate my expenses abroad.
+    - Tell me about the grants in [france](country)
+    - how is the Erasmus grant calculated?
+    - when is the grant paid to students?
+    - is the grant enough to cover all expenses?
+    - do I have to pay taxes on the Erasmus grant?
+    - what are the average monthly costs in [Germany](country)?
+    - can you compare the cost of living between [Italy](country) and [Spain](country)?
+    - how can I apply for extra funding?
+    - are there specific grants for students with disabilities?
+    - I need information on financial planning for my exchange
+    - what are the payment schedules for the scholarship?
+    - do I need to open a bank account in the host country?
+    - how can I manage my money abroad?
+    - what's the average rent for a student room in [Berlin](city)?
+    - tell me about the costs of accommodation
+    - how much should I budget for food per month?
+    - are there scholarships for students from disadvantaged backgrounds?
+    - I'm worried about the financial aspects of my trip
+    - can you help me create a budget for my stay in [Poland](country)?
+    - what are the financial conditions of the Erasmus program?
+    - I need all the details about funding and scholarships
+
+- intent: ask_duration
+  examples: |
+    - how long can I study abroad
+    - erasmus duration
+    - what is the length of stay
+    - what's the minimum stay period
+    - what is the maximum duration
+    - can I do a semester or a year abroad
+    - is there a time limit for erasmus
+    - can I go for [one semester](duration)?
+    - is it possible to stay for [10 months](duration)?
+    - how long is a [semester](duration)?
+    - what are the program lengths?
+    - what is the shortest possible exchange period?
+    - what is the longest I can stay on an Erasmus grant?
+    - can I extend my stay from [one semester](duration) to a full year?
+    - how many months does an academic year cover?
+    - are there short-term mobility options?
+    - what is the duration of an Erasmus internship?
+    - can I participate in the Erasmus program multiple times?
+    - what is the total mobility period I am entitled to?
+    - do the start and end dates vary by university?
+    - how long is a typical traineeship?
+    - can I combine a study period with a traineeship?
+    - I only want to go for [3 months](duration), is that possible?
+    - is the duration flexible?
+    - what's the standard period for an exchange?
+    - how do they define a 'semester'?
+    - can I split my Erasmus period between two countries?
+    - what is the maximum number of months I can receive funding for?
+    - I'm looking for a [short-term](duration) program
+    - can I stay for the summer?
+    - how is the duration of the program determined?
+    - what is the timeframe for a blended intensive program?
+    - I want to go for the entire [academic year](duration)
+    - can I choose the length of my stay?
+    - what are the options for the duration of my mobility?
+    - how long do most students go for?
+    - is it better to go for [one semester](duration) or two?
+    - can I shorten my stay if I need to?
+    - what are the rules about the duration of the grant agreement?
+    - I need to know the possible timeframes for the exchange
+    - can you explain the different duration options?
+    - what is the minimum duration for a traineeship to be eligible?
+    - is there a limit to how long I can be an Erasmus student?
+    - can I go for just the spring term?
+    - how long is the winter semester?
+    - are there options for a two-year master's program?
+    - I'm interested in a program that lasts [12 months](duration)
+    - what are the time commitments for the program?
+    - how long does the mobility have to be?
+    - I want to go for as long as possible
+    - can I study for a [full year](duration)?
+    - is it possible to go abroad for an [academic year](duration)?
+    - can the grant cover [two semesters](duration)?
+    - I want to apply for a [full year](duration) placement
+    - I want to ask for a [full year](duration) placement
+    - what is the maximum stay, is it [a year](duration)?
+    - for [six months](duration)
+    - [12 months](duration)
+    - a [full year](duration)
+    - [A semester](duration)
+    - [1 semester](duration)
+    - For [two semesters](duration)
+    - Yes, for a [bachelor](academic_level) degree
+    - it's a [master](academic_level) program
+    - I'm in my [PhD](academic_level)
+    - [postgraduate](academic_level) level
+    - [postgrad](academic_level)
+    - [BA](academic_level)
+    - [MSc](academic_level)
+    - [Doctorate](academic_level)
+    - I'm an [undergraduate](academic_level) student
+    - I'm looking for a [traineeship](program_type)
+    - An [internship](program_type)
+    - It's an [exchange program](program_type)
+    - [Short-term program](program_type)
+
+- intent: ask_academics
+  examples: |
+    - academic requirements
+    - credits needed
+    - ECTS credits
+    - learning agreement
+    - course recognition
+    - academic standing required
+    - grades needed for erasmus
+    - course recognition process
+    - grade conversion system
+    - thesis abroad options
+    - research opportunities
+    - academic calendar differences
+    - exam periods
+    - library access
+    - academic support services
+    - are there requirements for [master](academic_level) students?
+    - what about for a [bachelor](academic_level) degree?
+    - how does it work for a [phd](academic_level) candidate?
+    - I am a [bachelor](academic_level) student, what do i need to know
+    - can you explain the Learning Agreement part more?
+    - What are the academic requirements?
+    - tell me about course selection
+    - how many ECTS credits do I need to take?
+    - will my credits be transferred back to my home university?
+    - what is the European Credit Transfer and Accumulation System?
+    - I need help with my learning agreement
+    - what kind of courses can I choose?
+    - do my grades from abroad count towards my final degree?
+    - what's the minimum GPA to be accepted?
+    - can I write my thesis while on Erasmus?
+    - are there opportunities for lab work?
+    - how are exams conducted at the host university?
+    - what if I fail a course during my exchange?
+    - who needs to sign the learning agreement?
+    - can I change my courses after I arrive?
+    - I need information about the academic calendar
+    - what is the process for getting my courses approved?
+    - tell me more about the academic recognition of my studies abroad
+    - are there any specific academic prerequisites?
+    - how do I find the course catalogue of the host university?
+    - can I take courses from different faculties?
+    - what is the role of the academic coordinator?
+    - tell me about the teaching style at European universities
+    - what is the workload like?
+    - are attendance and participation mandatory?
+    - how can I get access to the university's online learning platform?
+    - I want to do a research project, is that possible?
+    - what academic support is available for exchange students?
+    - how do I get my transcript of records?
+    - what's the difference between ECTS and US credits?
+    - I need to maintain a certain academic standing
+    - what are the academic obligations of an Erasmus student?
+    - can you explain the concept of full academic recognition?
+    - how does it work for a [phd](academic_level) candidate?
+    - are there research options for a [doctorate](academic_level)?
+    - tell me about the requirements for [doctoral studies](academic_level) students
+    - I am a [doctoral program](academic_level) student, what do I need to know?
+    - what about the learning agreement for a [phd](academic_level)?
+
+- intent: ask_housing
+  examples: |
+    - accommodation for erasmus students
+    - housing options
+    - student dormitories
+    - where to live
+    - erasmus housing
+    - finding accommodation
+    - cost of housing
+    - student residence
+    - How hard is it to find housing there?
+    - how would I find a place to live?
+    - I need information about housing
+    - I need to know where can i stay
+    - tell me about houses
+    - can you help me find a place to stay?
+    - what are the typical living arrangements?
+    - does the university offer housing for exchange students?
+    - what are my options for accommodation?
+    - I need help finding a room in [Munich](city)
+    - what is the average rent for a student flat?
+    - are student dorms guaranteed for Erasmus students?
+    - how do I apply for a room in a student residence?
+    - what are the best websites for finding shared flats?
+    - I'm looking for a single room
+    - is it better to live in a dorm or a private apartment?
+    - what are the housing prices like in [Paris](city)?
+    - can you give me some tips for my housing search?
+    - I need to find accommodation for [one semester](duration)
+    - are utilities usually included in the rent?
+    - what is a typical security deposit?
+    - I need to find a place to live before I arrive
+    - are there any student housing agencies you can recommend?
+    - I'm looking for temporary accommodation for the first few weeks
+    - what should I look out for in a rental contract?
+    - how can I avoid housing scams?
+    - is it easy to find furnished apartments?
+    - what are the most popular student neighborhoods in [Rome](city)?
+    - I prefer to live with other international students
+    - are there options for family housing?
+    - I need accommodation that is close to the university
+    - what's the housing situation like in [Lisbon](city)?
+    - can you provide links to student housing platforms?
+    - I'm on a tight budget, what are the cheapest housing options?
+    - I need accessible housing for a student with a disability
+    - what's the process for booking a room in a hall of residence?
+    - tell me about the quality of student dormitories
+    - how far in advance should I start looking for housing?
+    - what documents do I need to rent an apartment?
+    - I'm having trouble finding a place, can the university help?
+    - I need advice on where to live
+    - what are the pros and cons of living in a student dorm?
+    - can you tell me about the different types of accommodation available?
+    - what's the best way to find a flatmate?
+
+- intent: ask_visa_requirements
+  examples: |
+    - do I need a visa
+    - visa requirements
+    - residence permit
+    - travel documents
+    - visa for erasmus
+    - entry requirements
+    - passport needed
+    - immigration requirements
+    - And what about the visa for that?
+    - what paperwork do I need for immigration?
+    - tell me about visa procedures
+    - as a non-EU citizen, do I need a visa for [Germany](country)?
+    - what is the process for getting a student visa?
+    - how long does it take to get a visa?
+    - where do I apply for my visa?
+    - what documents are required for the visa application?
+    - do I need to show proof of financial means for my visa?
+    - what is the difference between a visa and a residence permit?
+    - I need to apply for a residence permit after I arrive
+    - is my passport sufficient to enter the country?
+    - what are the entry regulations for my nationality?
+    - I'm a citizen of [Brazil], what are the visa rules for me?
+    - do I need health insurance for my visa application?
+    - what is the cost of a student visa?
+    - can I travel to other Schengen countries with my visa?
+    - my visa is about to expire, can I extend it?
+    - I need a checklist for my visa application
+    - what are the common reasons for visa rejection?
+    - do I need to attend an interview at the embassy?
+    - can the university provide a letter of acceptance for my visa?
+    - I need information on the immigration process
+    - what are the rules for registering with the local authorities?
+    - tell me everything about the necessary travel documents
+    - I'm confused about the visa requirements
+    - can you guide me through the visa application process?
+    - what type of visa should I apply for?
+    - I need to know the specific immigration laws for [France](country)
+    - do I need to get my documents translated for the visa application?
+    - what is the validity period of a student visa?
+    - I have a question about the visa application form
+    - can I work with my student visa?
+    - what happens if I lose my passport abroad?
+    - I need to make an appointment at the consulate
+    - what are the current visa processing times?
+    - my passport is expiring soon, will that be a problem?
+    - do I need a visa for a short-term traineeship?
+    - are there any special visa arrangements for Erasmus students?
+    - what should I do once I arrive in the host country regarding my legal status?
+    - I need the contact details of the embassy of [Italy](country) in my country
+    - what are the requirements for a long-stay visa?
+    - do I need to provide biometric data for my visa?
+    - what are the passport requirements for entry?
+    - tell me about the Schengen visa rules
+    - I need help with my residence permit application
+    - what are the legal requirements for staying in the country?
+    - do I need to carry my passport with me at all times?
+    - what is the latest information on visa regulations?
+    - what about visa info for [Portugal](country)?
+    - Can you tell me about the visas for [Spain](country)?
+    - How about the visa part for that country?
+    - Tell me about visas.
+    - yes about the visas
+    - sure, what about the visas?
+    - can you tell me about the visas?
+    - yes, the visa info
+
+- intent: ask_practical_info
+  examples: |
+    - can I work while studying
+    - part time job opportunities
+    - student discounts available
+    - opening bank account
+    - getting phone plan
+    - student insurance
+    - emergency contacts
+    - what to pack
+    - cultural shock preparation
+    - making friends abroad
+    - what about a checklist?
+    - do you have a pre-departure list?
+    - give me a checklist
+    - any practical tips?
+    - I want a checklist about Erasmus+
+    - how do I handle health insurance?
+    - can you give me some advice for living abroad?
+    - what are the best ways to meet new people?
+    - I need tips on how to deal with homesickness
+    - what should I definitely bring with me?
+    - how does public transport work in [Berlin](city)?
+    - can I get a student discount on public transport?
+    - I need to know about the healthcare system in [Spain](country)
+    - what is the European Health Insurance Card (EHIC)?
+    - do I need additional private health insurance?
+    - how can I find a part-time job?
+    - are there any restrictions on working as an international student?
+    - what's the best way to open a bank account?
+    - which mobile network provider do you recommend?
+    - I need a list of emergency numbers
+    - what are the must-have apps for a student in [France](country)?
+    - can you give me some safety tips?
+    - how can I prepare for the cultural differences?
+    - what are some common cultural mistakes to avoid?
+    - I'm looking for a pre-departure guide
+    - what should I do in my first week?
+    - tell me about student life and activities
+    - are there any student associations I can join?
+    - how can I stay in touch with my family and friends back home?
+    - what's the weather like during the winter?
+    - do you have any packing advice?
+    - I need help with my to-do list before I leave
+    - what are the essential things to arrange before my departure?
+    - give me some practical information for my stay
+    - how can I integrate into the local culture?
+    - tell me about the food and cuisine
+    - what's the typical cost of a meal at a restaurant?
+    - are there any student canteens at the university?
+    - I want to travel during my Erasmus, any tips?
+    - what are the best travel destinations nearby?
+
+- intent: ask_university_recommendations
+  examples: |
+    - what are the best countries for [engineering](field_of_study)
+    - where can I study [business](field_of_study)?
+    - show me [medicine](field_of_study) programs in Europe
+    - recommend some [arts](field_of_study) schools
+    - find [computer science](field_of_study) universities
+    - recommend some [economics](field_of_study) schools
+    - where can I study [architecture](field_of_study) in Europe
+    - can you find universities in [Germany](country) for [business](field_of_study)?
+    - I need to find a university in [Spain](country)
+    - show me a list of universities for [arts](field_of_study) in [france](country)
+    - list some universities in [france](country)
+    - can you recommend internships in [Spain](country)?
+    - what are the best universities in [France](country) for [arts](field_of_study)?
+    - show me some top schools for [law](field_of_study)
+    - list some good universities for [medicine](field_of_study)
+    - I need to find a university in [Italy](country) that offers [architecture](field_of_study)
+    - are there good [economics](field_of_study) programs in the [Netherlands](country)?
+    - find me a school
+    - recommend a university
+    - looking for [master](academic_level) programs in [business](field_of_study) in [France](country)
+    - what are the options for a [bachelor](academic_level) in [engineering](field_of_study) in [Germany](country)?
+    - find me the top universities in [Spain](country)
+    - what are the best [Polish](country) universities for [computer science](field_of_study)?
+    - show me a list of universities
+    - where should I go for [psychology](field_of_study)?
+    - can you suggest some places to study [marketing](field_of_study) in [Portugal](country)?
+    - find unis for [physics](field_of_study) in [Austria](country)
+    - I want to see a list of universities in [Italy](country)
+    - what are my university options in the [Czech Republic](country)
+    - recommend schools in [spain](country) for [business](field_of_study)
+    - show me [Erasmus Mundus](program_type) masters programs
+    - Find me [bachelor](academic_level) programs in [Spain](country) for [business](field_of_study)
+    - I'm looking for universities in [Portugal](country)
+    - I'm looking for a [bachelor](academic_level) program
+    - I want to find [exchange programs](program_type) in engineering
+    - what about [short-term programs](program_type)?
+    - looking for [internship](program_type) opportunities
+    - programs for [traineeships](program_type)
+    - where can i study in [business](field_of_study)?
+    - can you help me find a university that specializes in [environmental science](field_of_study)?
+    - I need a recommendation for a good [history](field_of_study) program in the [UK](country)
+    - what are the top-ranked universities for [data science](field_of_study) in Europe?
+    - I want to find a [traineeship](program_type) in the field of [marketing](field_of_study)
+    - are there any universities in [Belgium](country) with strong [international relations](field_of_study) departments?
+    - I'm looking for a creative school for [graphic design](field_of_study)
+    - what are the best options for a [PhD](academic_level) in [biology](field_of_study) in [Sweden](country)?
+    - find me universities in [Finland](country) that offer courses in English for [education](field_of_study)
+    - I'm searching for a university with a good reputation in [philosophy](field_of_study)
+    - can you suggest some partner universities of my home institution for [chemistry](field_of_study)?
+    - I need to find an [internship](program_type) in [finance](field_of_study) in [Luxembourg](country)
+    - what are the leading technical universities for [robotics](field_of_study) in [Germany](country)?
+    - show me some universities with a focus on [sustainability](field_of_study)
+    - I'm interested in [marine biology](field_of_study), where should I look?
+    - find me a program in [digital media](field_of_study) in the [Netherlands](country)
+    - find me [postgrad](academic_level) courses for [biz](field_of_study) in [Holland](country)
+    - show me [undergrad](academic_level) [Eng](field_of_study) programs
+    - are there [doctorate](academic_level) programs for [econ](field_of_study) in Europe
+    - looking for [management](field_of_study:business) traineeships in the [Netherlands](country)
+    - find me universities in [Germany](country) for [engineering](field_of_study)
+    - I want to study [business](field_of_study) in [Spain](country)
+    - show me [law](field_of_study) programs in the [Netherlands](country)
+    - I'm looking for [master](academic_level) programs in [business](field_of_study) in [France](country)
+    - any recommendations for [arts](field_of_study) in [Italy](country)?
+    - search for [architecture](field_of_study) schools in [Portugal](country)
+
+- intent: ask_what_can_you_do
+  examples: |
+    - what can you do?
+    - how can you help me?
+    - what are your capabilities?
+    - what kind of questions can I ask?
+    - tell me what you can do
+    - what is your purpose?
+    - show me your features
+    - what are you able to do?
+    - what are your functions?
+    - what services do you provide?
+    - can you give me a list of your skills?
+    - what is your main function?
+    - how do you work?
+    - what information can you give me?
+    - what's your area of expertise?
+    - are there any commands I can use?
+    - tell me your abilities
+    - what are you designed for?
+    - what can you help with?
+    - explain your capabilities
+    - what are the things you can do for me?
+    - how can you assist me?
+    - I want to know your functionalities
+    - what kind of help can I get from you?
+    - what are you capable of?
+    - can you show me a menu of options?
+    - what topics can we talk about?
+    - what's the scope of your knowledge?
+    - what are your limitations?
+    - how can I make the most of our conversation?
+    - what are you programmed to do?
+    - what are your primary directives?
+    - can you walk me through your features?
+    - what is your range of services?
+    - how can you make my life easier?
+    - what kind of tasks can you perform?
+    - what is the extent of your abilities?
+    - show me what you've got
+    - what are all the things you can do?
+    - how can I interact with you effectively?
+    - what are your core features?
+    - what are the main things you can assist with?
+    - can you list your supported commands?
+    - what are your operational parameters?
+    - what is your intended use?
+    - how can you support me?
+    - what is the full list of your capabilities?
+    - what can I ask you about?
+    - tell me about your design purpose
+    - what are your skills?
+
+- intent: ask_who_are_you
+  examples: |
+    - who are you?
+    - what is your name?
+    - what are you called?
+    - are you the erasmus bot?
+    - what should I call you?
+    - who am I speaking with?
+    - can you introduce yourself?
+    - what is your identity?
+    - who is this?
+    - what do people call you?
+    - do you have a name?
+    - I'd like to know who you are
+    - could you tell me your name?
+    - who am I talking to?
+    - what's your designation?
+    - what are you known as?
+    - how should I address you?
+    - tell me about yourself
+    - what is your name, bot?
+    - who created you?
+    - who is behind this service?
+    - what is your official title?
+    - is this the official Erasmus assistant?
+    - who is the developer of this bot?
+    - are you part of a larger system?
+    - what is your background?
+    - where do you come from?
+    - what is your origin?
+    - can you tell me a bit about yourself?
+    - what's your story?
+    - who are your creators?
+    - are you an independent entity?
+    - do you have a specific name I can use?
+    - what's your handle?
+    - who is the persona behind this chat?
+    - what is your role here?
+    - what's your name, assistant?
+    - how were you named?
+    - who chose your name?
+    - what company do you represent?
+    - are you a Google AI?
+    - who am I interacting with right now?
+    - what can you tell me about your identity?
+    - are you a specific character?
+    - what name do you go by?
+    - who is the mind behind this bot?
+    - can you share your name?
+    - tell me who you are, please
+    - what is your designation?
+
+- intent: ask_for_a_joke
+  examples: |
+    - tell me a joke
+    - can you tell me something funny?
+    - make me laugh
+    - do you know any jokes?
+    - I want to hear a joke
+    - hit me with a funny one
+    - tell me a funny joke
+    - do you have any good jokes?
+    - I could use a laugh
+    - tell me a joke to cheer me up
+    - can you share a joke with me?
+    - I'm in the mood for a joke
+    - give me your best joke
+    - make me chuckle
+    - do you know any good one-liners?
+    - let's hear a joke
+    - joke time
+    - can you crack a joke?
+    - I want to laugh, tell me something funny
+    - got any jokes?
+    - tell me a knock-knock joke
+    - I need a bit of humor
+    - can you tell me a pun?
+    - what's your favorite joke?
+    - make me smile with a joke
+    - I'm bored, tell me a joke
+    - let's have some fun, tell me a joke
+    - can you tell a joke about students?
+    - I dare you to make me laugh
+    - tell me the funniest joke you know
+    - do you have a sense of humor? prove it
+    - entertain me with a joke
+    - give me some comic relief
+    - I'm ready for a joke
+    - what's a good joke you've heard recently?
+    - can you tell me a clean joke?
+    - I need a short and funny joke
+    - tell me a silly joke
+    - let's lighten the mood with a joke
+    - I'd like a joke, please
+    - can you do comedy?
+    - are you capable of telling jokes?
+    - let me hear your sense of humor
+    - hit me with your best shot, joke-wise
+    - can you generate a joke for me?
+    - what's the funniest thing you know?
+    - do you know any jokes about technology?
+    - tell me a clever joke
+    - I'm waiting for a joke
+    - is it joke o'clock?
+
+- intent: out_of_scope
+  examples: |
+    - what is the meaning of life
+    - asdflkjsadf asdfkj
+    - can you order me a pizza
+    - tell me about the stock market
+    - what is 2+2
+    - who won the world cup in 2010
+    - can you book a flight for me
+    - how do I fix my car
+    - send an email to my mom
+    - what is your favorite color
+    - do you have feelings
+    - tell me a secret
+    - what's the weather like in Thessaloniki
+    - can you play a song for me
+    - i am feeling sad
+    - this is completely useless
+    - you are a stupid bot
+    - why is the sky blue
+    - can you do my homework
+    - what time is it in Tokyo
+    - translate 'hello' to Klingon
+    - tell me about quantum physics
+    - book a hotel in Athens
+    - what are the winning lottery numbers
+    - I want to talk to a human
+    - transfer me to an agent
+    - what's your opinion on politics
+    - recommend a good movie
+    - how to bake a chocolate cake
+    - my computer is not working
+    - where can I buy a new phone
+    - tell me the history of the Byzantine Empire
+    - the quick brown fox jumps over the lazy dog
+    - window chair lamp floor
+    - why did you say that
+    - can you feel pain
+    - are you sentient
+    - what should I have for dinner
+    - find me a recipe for pasta
+    - tell me about current events
+    - what's in the news today
+    - !@#$%^&*()
+    - this is not helpful at all
+    - I want to complain
+    - what's the capital of Mongolia
+    - can you help me with my relationship problems
+    - am I a good person
+    - how much wood would a woodchuck chuck
+    - sing me a song
+    - what is the best way to learn guitar
+    - give me medical advice
+    - I have a headache what should I do
+    - what are the symptoms of the flu
+    - can you write a poem for me
+    - generate a picture of a cat
+    - how do I reset my password for my email
+    - you are not understanding me
+    - this is the worst bot ever
+    - can you write code for me
+    - debug my python script
+    - what is the square root of 529
+    - tell me about local restaurants
+    - where can I get the best souvlaki in Thessaloniki
+    - how to get to the airport from here
+    - what is your creation date
+    - do you dream of electric sheep
+    - who is the president of the United States
+    - what's the latest gossip
+    - can you connect to my wifi
+    - turn on the lights
+    - what are you made of
+    - do you sleep
+    - can you remember my name
+    - this is taking too long
+    - I'm frustrated with your answers
+
+- intent: inform_contextual
+  examples: |
+    - and [spain](country)?
+    - what about [germany](country)?
+    - how is it in [france](country)?
+    - tell me about [italy](country) then
+    - and for [portugal](country)?
+    - okay, and [greece](country)?
+    - and in [berlin](city)?
+    - what if I go to [sweden](country)?
+    - show me for [the czech republic](country)
+
+- intent: restart_conversation
+  examples: |
+    - let's start over
+    - I want to start again
+    - start from the beginning
+    - reset this conversation
+    - let's restart
+    - can we start over?
+    - clear everything and start again
+    - new conversation please
+    - I want to begin again
+    - wipe the slate clean
+    - forget everything we just talked about
+    - hard reset
+    - main menu
+    - back to the start
+    - I want to ask about something completely different, let's restart
+
+- intent: inform_country
+  examples: |
+    - [Germany](country)
+    - In [Spain](country)
+    - I was thinking about [Italy](country)
+    - Let's do [France](country)
+    - how about for [Poland](country)?
+    - [Poland](country)
+    - I was thinking of [Portugal](country)
+    - The country I'm interested in is [Greece](country)
+    - The destination would be [Austria](country)
+    - In the [Netherlands](country)
+    - [Czech Republic](country)
+    - I'm thinking about [Finland](country)
+    - for [Finland](country)
+    - [France](country)
+    - [Spain](country)
+    - [Italy](country)
+    - how about for [poland](country)?
+    - my choice is [Sweden](country)
+    - I meant [Greece](country)
+
+- intent: inform_field_of_study
+  examples: |
+    - For [business](field_of_study)
+    - i'm thinking [engineering](field_of_study)
+    - [computer science](field_of_study) is my major
+    - my major is [engineering](field_of_study)
+    - I study [business](field_of_study)
+    - my field of study is [computer science](field_of_study)
+    - i'm in [arts and humanities](field_of_study)
+    - [medicine](field_of_study)
+    - [law](field_of_study)
+    - for [psychology](field_of_study)
+    - it's [economics](field_of_study)
+    - I am interested in [architecture](field_of_study)
+    - My subject is [chemistry](field_of_study)
+    - I'm studying [data science](field_of_study)
+    - My field is [sociology](field_of_study)
+    - [engineering](field_of_study)
+    - for [business](field_of_study)
+    - [Arts](field_of_study)
+    - okay for [history](field_of_study)
+    - [history](field_of_study)
+
+- synonym: greece
+  examples: |
+    - Greece
+    - Hellas
+    - Greek Republic
+    - Hellenic Republic
+
+- synonym: France
+  examples: |
+    - france
+    - French Republic
+
+- synonym: Spain
+  examples: |
+    - spain
+    - Kingdom of Spain
+    - Espana
+
+- synonym: business
+  examples: |
+    - biz
+    - commerce
+    - management
+    - business administration
+    - business studies
+    - entrepreneurship
+    - finance
+    - marketing
+    - international business
+    - corporate studies
+
+- synonym: computer science
+  examples: |
+    - CS
+    - comp sci
+    - informatics
+    - software engineering
+    - AI
+    - artificial intelligence
+    - data science
+    - cybersecurity
+    - programming
+    - IT
+    - information technology
+    - computing
+
+- synonym: economics
+  examples: |
+    - econ
+    - financial studies
+    - political economy
+    - macroeconomics
+    - microeconomics
+    - econometrics
+    - development economics
+    - economic theory
+    - public finance
+    - quantitative economics
+
+- synonym: engineering
+  examples: |
+    - Eng
+    - engineering studies
+    - engineering programs
+    - mechanical engineering
+    - civil engineering
+    - electrical engineering
+    - chemical engineering
+    - computer engineering
+    - aerospace engineering
+    - bioengineering
+    - industrial engineering
+
+- synonym: medicine
+  examples: |
+    - med
+    - medical studies
+    - healthcare
+    - general medicine
+    - dentistry
+    - pharmacy
+    - nursing
+    - public health
+    - clinical sciences
+    - biomedical sciences
+    - surgery
+
+- synonym: law
+  examples: |
+    - legal studies
+    - jurisprudence
+    - legal science
+    - international law
+    - criminal law
+    - civil law
+    - public law
+    - human rights law
+    - European law
+    - constitutional law
+    - advocacy
+
+- synonym: psychology
+  examples: |
+    - psych
+    - psychological science
+    - clinical psychology
+    - cognitive psychology
+    - social psychology
+    - developmental psychology
+    - neuroscience
+    - behavioral science
+    - mental health studies
+    - counseling
+    - human behavior
+
+- synonym: international relations
+  examples: |
+    - IR
+    - global studies
+    - international affairs
+    - diplomacy
+    - political science
+    - global politics
+    - foreign policy
+    - international development
+    - peace and conflict studies
+    - international security
+    - world affairs
+
+- synonym: bachelor
+  examples: |
+    - bachelor's
+    - BSc
+    - undergraduate
+    - undergrad
+    - BA
+    - B.Eng
+    - first degree
+    - college degree
+    - baccalaureate
+    - BScHons
+    - Arts degree
+
+- synonym: master
+  examples: |
+    - master's
+    - MSc
+    - postgraduate
+    - postgrad
+    - MA
+    - M.Eng
+    - grad school
+    - Master of Science
+    - Master of Arts
+    - advanced degree
+    - graduate degree
+    - higher degree
+
+- synonym: phd
+  examples: |
+    - doctorate
+    - doctoral studies
+    - doctoral program
+    - a doctorate degree
+    - PhD
+    - DPhil
+    - research degree
+    - terminal degree
+    - Doctor of Philosophy
+    - post-graduate research
+    - higher doctorate
+
+- synonym: one semester
+  examples: |
+    - a semester
+    - 1 semester
+    - single semester
+    - one term
+    - a single term
+    - half a year
+    - approx six months
+    - one academic period
+    - one study period
+    - a mobility period of one semester
+    - fall semester
+    - spring semester
+
+- synonym: full year
+  examples: |
+    - a year
+    - two semesters
+    - 2 semesters
+    - an academic year
+    - the whole year
+    - entire year
+    - full academic year
+    - two terms
+    - 12 months
+    - full duration
+    - scholastic year
+
+- synonym: traineeship
+  examples: |
+    - internship
+    - placement
+    - work placement
+    - practical training
+    - professional experience
+    - work experience
+    - vocational training
+    - practicum
+    - clinical placement
+    - apprenticeship
+    - job placement
+
+- synonym: student exchange
+  examples: |
+    - exchange program
+    - study abroad
+    - international exchange
+    - mobility program
+    - Erasmus exchange
+    - student mobility
+    - academic exchange
+    - overseas study
+    - cross-border education
+    - international study program
+    - exchange opportunity
+
+- synonym: Netherlands
+  examples: |
+    - Holland
+    - Kingdom of the Netherlands
+    - Nederland
+
+- synonym: Czech Republic
+  examples: |
+    - Czechia
 
