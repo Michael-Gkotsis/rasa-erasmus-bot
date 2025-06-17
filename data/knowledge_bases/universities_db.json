@@ -1,0 +1,62 @@
+{
+    "germany": {
+        "engineering": ["Technical University of Munich (TUM)", "RWTH Aachen University", "KIT, Karlsruhe Institute of Technology"],
+        "business": ["Mannheim Business School", "Frankfurt School of Finance & Management", "ESMT Berlin"],
+        "medicine": ["Charité - Universitätsmedizin Berlin", "Heidelberg University", "University of Tübingen"],
+        "arts": ["University of the Arts Berlin (UdK)", "Dresden Academy of Fine Arts"],
+        "computer science": ["Technical University of Munich (TUM)", "KIT, Karlsruhe Institute of Technology", "RWTH Aachen University"],
+        "physics": ["Ludwig Maximilian University of Munich (LMU)", "Heidelberg University", "Technical University of Munich (TUM)"],
+        "chemistry": ["Heidelberg University", "LMU Munich", "University of Göttingen"],
+        "environmental science": ["University of Freiburg", "Humboldt University of Berlin", "Wageningen University & Research (cross-border recommendation)"]
+    },
+    "spain": {
+        "business": ["IE Business School", "ESADE Business School", "IESE Business School"],
+        "engineering": ["Polytechnic University of Madrid (UPM)", "Polytechnic University of Catalonia (UPC)"],
+        "arts": ["University of Barcelona", "Complutense University of Madrid", "Polytechnic University of Valencia"],
+        "marketing": ["ESIC Business & Marketing School", "IE Business School", "EAE Business School"]
+    },
+    "france": {
+        "business": ["HEC Paris", "INSEAD", "ESSEC Business School"],
+        "engineering": ["École Polytechnique", "CentraleSupélec", "Mines ParisTech"],
+        "arts": ["École des Beaux-Arts", "Sorbonne University", "Panthéon-Sorbonne University"],
+        "architecture": ["ENSA Paris-Malaquais", "ENSA Versailles", "ENSA-V & a École d'Architecture de la Ville & des Territoires Paris-Est"],
+        "legal studies": ["Panthéon-Sorbonne University (Paris 1)", "Sciences Po Law School", "Panthéon-Assas University (Paris 2)"]
+    },
+    "italy": {
+        "architecture": ["Politecnico di Milano", "Politecnico di Torino", "IUAV University of Venice"],
+        "arts": ["Accademia di Belle Arti di Firenze", "Nuova Accademia di Belle Arti (NABA)", "University of Bologna"]
+    },
+    "poland": {
+        "computer science": ["University of Warsaw", "AGH University of Science and Technology", "Warsaw University of Technology"],
+        "medicine": ["Jagiellonian University Medical College", "Medical University of Warsaw", "Poznan University of Medical Sciences"]
+    },
+    "netherlands": {
+        "economics": ["Erasmus School of Economics (Rotterdam)", "Tilburg University", "University of Amsterdam"],
+        "law": ["Leiden University", "University of Amsterdam", "Utrecht University"]
+    },
+    "switzerland": {
+        "physics": ["ETH Zurich (Swiss Federal Institute of Technology)", "EPFL (Swiss Federal Institute of Technology Lausanne)", "University of Geneva"]
+    },
+    "norway": {
+        "environmental science": ["University of Oslo", "Norwegian University of Life Sciences (NMBU)", "University of Bergen"]
+    },
+    "slovenia": {
+        "geography": ["University of Ljubljana", "University of Primorska"]
+    },
+    "croatia": {
+        "marine biology": ["University of Split", "University of Zagreb", "University of Zadar"]
+    },
+    "portugal": {
+        "biology": ["University of Porto", "University of Lisbon", "University of the Algarve"],
+        "marketing": ["ISCTE - University Institute of Lisbon", "Nova School of Business and Economics"]
+    },
+    "finland": {
+        "education": ["University of Helsinki", "University of Jyväskylä", "Tampere University"]
+    },
+     "austria": {
+        "physics": ["University of Vienna", "Vienna University of Technology (TU Wien)", "University of Innsbruck"]
+    },
+    "belgium": {
+        "international relations": ["KU Leuven", "College of Europe (Bruges)", "Vrije Universiteit Brussel (VUB)"]
+    }
+}
