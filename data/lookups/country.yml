@@ -1,0 +1,33 @@
+version: "3.1"
+
+nlu:
+- lookup: country
+  examples: |
+    - Austria
+    - Belgium
+    - Croatia
+    - Czech Republic
+    - Denmark
+    - Estonia
+    - Finland
+    - France
+    - Germany
+    - Greece
+    - Hungary
+    - Iceland
+    - Ireland
+    - Italy
+    - Latvia
+    - Liechtenstein
+    - Lithuania
+    - Netherlands
+    - North Macedonia
+    - Norway
+    - Poland
+    - Portugal
+    - Serbia
+    - Slovenia
+    - Spain
+    - Sweden
+    - Switzerland
+    - Turkey
