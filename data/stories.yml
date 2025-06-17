@@ -1,0 +1,1638 @@
+version: "3.1"
+stories:
+
+- story: "1. Simple Greeting and Goodbye"
+  steps:
+  - user: "hey there"
+    intent: greet
+  - action: utter_greet
+
+
+- story: "2. User asks about capabilities"
+  steps:
+  - user: "what can you do for me?"
+    intent: ask_what_can_you_do
+  - action: utter_apologize_and_clarify_capabilities
+
+- story: "3. User asks who the bot is"
+  steps:
+  - user: "who are you?"
+    intent: ask_who_are_you
+  - action: utter_who_are_you
+
+- story: "4. User asks for a joke"
+  steps:
+  - user: "tell me something funny"
+    intent: ask_for_a_joke
+  - action: utter_joke
+
+- story: "5. User challenges the bot"
+  steps:
+  - user: "are you a bot?"
+    intent: bot_challenge
+  - action: utter_iamabot
+
+- story: "6. User asks for general Erasmus info (resets context)"
+  steps:
+  - user: "can you tell me what erasmus is?"
+    intent: ask_erasmus_info
+  - action: action_get_erasmus_overview_and_reset
+  - slot_was_set:
+    - current_topic: null
+    - country: null
+
+- story: "7. User asks about eligibility"
+  steps:
+  - user: "Am I eligible?"
+    intent: ask_eligibility
+  - action: utter_eligibility
+
+- story: "8. User asks about application process"
+  steps:
+  - user: "how do I apply?"
+    intent: ask_application_process
+  - action: utter_application_process
+
+- story: "9. User asks about housing (sets topic)"
+  steps:
+  - user: "tell me about accommodation"
+    intent: ask_housing
+  - action: action_get_housing_info
+  - slot_was_set:
+    - current_topic: "housing"
+
+- story: "10. User asks about visa (sets topic)"
+  steps:
+  - user: "what about visas?"
+    intent: ask_visa_requirements
+  - action: action_get_visa_info
+  - slot_was_set:
+    - current_topic: "visa"
+
+- story: "11. User asks about language (sets topic)"
+  steps:
+  - user: "what are the language requirements"
+    intent: ask_language_requirements
+  - action: action_get_language_info
+  - slot_was_set:
+    - current_topic: "language"
+
+- story: "12. User asks about duration (sets topic)"
+  steps:
+  - user: "how long can i go for"
+    intent: ask_duration
+  - action: action_get_duration_info
+  - slot_was_set:
+    - current_topic: "duration"
+
+- story: "13. User asks about academics (sets topic)"
+  steps:
+  - user: "tell me about the academic part"
+    intent: ask_academics
+  - action: action_get_academics_info
+  - slot_was_set:
+    - current_topic: "academics"
+
+- story: "14. User asks for a generic checklist (sets topic)"
+  steps:
+  - user: "do you have a pre-departure list?"
+    intent: ask_practical_info
+  - action: action_practical_checklist
+  - slot_was_set:
+    - current_topic: "practical"
+
+- story: "15. User asks for a checklist for a specific country"
+  steps:
+  - user: "hi"
+    intent: greet
+  - action: utter_greet
+  - user: "give me a checklist for [Germany](country)"
+    intent: ask_practical_info
+  - slot_was_set:
+    - country: "Germany"
+  - action: action_practical_checklist
+  - slot_was_set:
+    - current_topic: "practical"
+
+- story: "16. User asks for budget info for a country"
+  steps:
+  - user: "What's the budget for [Spain](country)?"
+    intent: ask_finances
+  - slot_was_set:
+    - country: "Spain"
+  - action: action_budget_calculator
+  - slot_was_set:
+    - current_topic: "finances"
+
+- story: "17. User asks for country info"
+  steps:
+  - user: "tell me about [France](country)"
+    intent: ask_country_info
+  - slot_was_set:
+    - country: "France"
+  - action: action_get_country_info
+  - slot_was_set:
+    - current_topic: "country_info"
+
+- story: "18. University search happy path"
+  steps:
+  - user: "Find me universities in [Germany](country) for [engineering](field_of_study)"
+    intent: ask_university_recommendations
+  - action: university_search_form
+  - active_loop: university_search_form
+  - slot_was_set:
+    - country: "Germany"
+  - slot_was_set:
+    - field_of_study: "engineering"
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+  - slot_was_set:
+    - country: null
+    - field_of_study: null
+    - current_topic: null
+
+- story: "19. University search happy path with city inference"
+  steps:
+  - user: "find me schools in [Paris](city) for [arts](field_of_study)"
+    intent: ask_university_recommendations
+  - action: university_search_form
+  - active_loop: university_search_form
+  - slot_was_set:
+    - country: "France"
+  - slot_was_set:
+    - field_of_study: "arts"
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "20. University search, provide country then field of study"
+  steps:
+  - user: "I want to study in [Italy](country)"
+    intent: ask_university_recommendations
+  - action: university_search_form
+  - active_loop: university_search_form
+  - slot_was_set:
+    - country: "Italy"
+  - user: "for [architecture](field_of_study)"
+    intent: inform_field_of_study
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "21. University search, provide field of study then country"
+  steps:
+  - user: "where can i study [computer science](field_of_study)?"
+    intent: ask_university_recommendations
+  - action: university_search_form
+  - active_loop: university_search_form
+  - slot_was_set:
+    - field_of_study: "computer science"
+  - user: "in [Poland](country)"
+    intent: inform_country 
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "22. University search, no info provided initially"
+  steps:
+  - user: "recommend a university"
+    intent: ask_university_recommendations
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "I'm interested in [law](field_of_study)"
+    intent: inform_field_of_study
+  - action: university_search_form
+  - active_loop: university_search_form
+  - slot_was_set:
+    - field_of_study: "law"
+  - user: "in the [Netherlands](country)"
+    intent: inform_country
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "23. University search with city inference in the middle of form"
+  steps:
+  - user: "find programs in [business](field_of_study)"
+    intent: ask_university_recommendations
+  - action: university_search_form
+  - active_loop: university_search_form
+  - slot_was_set:
+    - field_of_study: "business"
+  - user: "how about in [Lisbon](city)"
+    intent: inform_country
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "24. User asks about eligibility then application"
+  steps:
+  - user: "hi there"
+    intent: greet
+  - action: utter_greet
+  - user: "can i apply for erasmus?"
+    intent: ask_eligibility
+  - action: utter_eligibility
+  - user: "ok and what is the application process?"
+    intent: ask_application_process
+  - action: utter_application_process
+
+- story: "27. Full conversation flow"
+  steps:
+  - user: "hello"
+    intent: greet
+  - action: utter_greet
+  - user: "what is erasmus about?"
+    intent: ask_erasmus_info
+  - action: action_get_erasmus_overview_and_reset
+  - user: "tell me about life in [Spain](country)"
+    intent: ask_country_info
+  - slot_was_set:
+    - country: "Spain"
+  - action: action_get_country_info
+  - user: "and the finances?"
+    intent: ask_finances
+  - action: action_budget_calculator
+  - user: "ok what about a checklist"
+    intent: ask_practical_info
+  - action: action_practical_checklist
+
+- story: "28. Conversation about academics and duration"
+  steps:
+  - user: "what are the academic requirements?"
+    intent: ask_academics
+  - action: action_get_academics_info
+  - slot_was_set:
+    - current_topic: "academics"
+  - user: "and can I go for just [one semester](duration)?"
+    intent: ask_duration
+  - slot_was_set:
+    - duration: "one semester"
+  - action: action_get_duration_info
+  - slot_was_set:
+    - current_topic: "duration"
+
+- story: "29. User asks about finances, then for a checklist for the same country"
+  steps:
+  - user: "What's the budget for [Italy](country)?"
+    intent: ask_finances
+  - slot_was_set:
+    - country: "Italy"
+  - action: action_budget_calculator
+  - slot_was_set:
+    - current_topic: "finances"
+  - user: "ok give me the checklist for there"
+    intent: ask_practical_info
+  - action: action_practical_checklist
+  - slot_was_set:
+    - current_topic: "practical"
+
+- story: "30. User asks about country info, then for a checklist for that country"
+  steps:
+  - user: "Tell me about [Poland](country)."
+    intent: ask_country_info
+  - slot_was_set:
+    - country: "Poland"
+  - action: action_get_country_info
+  - slot_was_set:
+    - current_topic: "country_info"
+  - user: "and the checklist?"
+    intent: ask_practical_info
+  - action: action_practical_checklist
+  - slot_was_set:
+    - current_topic: "practical"
+
+- story: "31. User asks for country info using a city"
+  steps:
+  - user: "tell me about [Berlin](city)"
+    intent: ask_country_info
+  - action: action_get_country_info
+  - slot_was_set:
+    - country: "Germany"
+    - current_topic: "country_info"
+
+- story: "32. User asks for budget using a city"
+  steps:
+  - user: "hi"
+    intent: greet
+  - action: utter_greet
+  - user: "What's the cost of living in [Rome](city)?"
+    intent: ask_finances
+  - action: action_budget_calculator
+  - slot_was_set:
+    - country: "Italy"
+    - current_topic: "finances"
+
+- story: "33. User asks for checklist using a city"
+  steps:
+  - user: "can i have a checklist for [Madrid](city)?"
+    intent: ask_practical_info
+  - action: action_practical_checklist
+  - slot_was_set:
+    - country: "Spain"
+    - current_topic: "practical"
+
+- story: "34. User asks for country info by city, then asks for finances for same country"
+  steps:
+  - user: "tell me about [Prague](city)"
+    intent: ask_country_info
+  - action: action_get_country_info
+  - slot_was_set:
+    - country: "Czech Republic"
+    - current_topic: "country_info"
+  - user: "and the finances there?"
+    intent: ask_finances
+  - action: action_budget_calculator
+  - slot_was_set:
+    - current_topic: "finances"
+
+- story: "35. User asks about finances using a city, then asks for checklist"
+  steps:
+  - user: "how much would i spend in [Vienna](city)?"
+    intent: ask_finances
+  - action: action_budget_calculator
+  - slot_was_set:
+    - country: "Austria"
+    - current_topic: "finances"
+  - user: "and a checklist please"
+    intent: ask_practical_info
+  - action: action_practical_checklist
+  - slot_was_set:
+    - current_topic: "practical"
+
+- story: "36. User says something out of scope then recovers"
+  steps:
+  - user: "what is the meaning of life"
+    intent: out_of_scope
+  - action: utter_empathetic_fallback
+  - user: "ok how about eligibility"
+    intent: ask_eligibility
+  - action: utter_eligibility
+
+- story: "37. User asks something out of scope after greeting"
+  steps:
+  - user: "hello there"
+    intent: greet
+  - action: utter_greet
+  - user: "can you order me a pizza"
+    intent: out_of_scope
+  - action: utter_empathetic_fallback
+  - user: "okay then tell me about the application process"
+    intent: ask_application_process
+  - action: utter_application_process
+
+- story: "38. Starts with bot challenge, then asks real questions"
+  steps:
+  - user: "prove you're not human"
+    intent: bot_challenge
+  - action: utter_iamabot
+  - user: "so what is this erasmus thing?"
+    intent: ask_erasmus_info
+  - action: action_get_erasmus_overview_and_reset
+  - user: "what countries are there"
+    intent: ask_countries
+  - action: utter_countries_list
+
+- story: "39. Asks about housing, then specifies a country, then asks about budget"
+  steps:
+  - user: "how is housing?"
+    intent: ask_housing
+  - action: action_get_housing_info
+  - slot_was_set:
+    - current_topic: "housing"
+  - user: "ok and what about the budget for [Ireland](country)?"
+    intent: ask_finances
+  - slot_was_set:
+    - country: "Ireland"
+  - action: action_budget_calculator
+  - slot_was_set:
+    - current_topic: "finances"
+
+- story: "40. Asks about duration and then academics"
+  steps:
+  - user: "hi"
+    intent: greet
+  - action: utter_greet
+  - user: "how long does it last"
+    intent: ask_duration
+  - action: action_get_duration_info
+  - slot_was_set:
+    - current_topic: "duration"
+  - user: "and what about ECTS credits"
+    intent: ask_academics
+  - action: action_get_academics_info
+  - slot_was_set:
+    - current_topic: "academics"
+
+- story: "41. Asks form, gets distracted by finances, then completes form"
+  steps:
+  - user: "find universities in [Greece](country)"
+    intent: ask_university_recommendations
+  - action: university_search_form
+  - active_loop: university_search_form
+  - slot_was_set:
+    - country: "Greece"
+  - user: "wait, what's the budget there first?"
+    intent: ask_finances
+  - action: action_budget_calculator
+  - slot_was_set:
+    - current_topic: "finances"
+  - user: "okay, for [history](field_of_study)"
+    intent: inform_field_of_study
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "42. Asks checklist, then asks about a specific country from the checklist"
+  steps:
+  - user: "give me a checklist"
+    intent: ask_practical_info
+  - action: action_practical_checklist
+  - slot_was_set:
+    - current_topic: "practical"
+  - user: "tell me more about [Germany](country)"
+    intent: ask_country_info
+  - slot_was_set:
+    - country: "Germany"
+  - action: action_get_country_info
+  - slot_was_set:
+    - current_topic: "country_info"
+
+- story: "43. User asks about application, then visa, then housing"
+  steps:
+  - user: "How do I apply?"
+    intent: ask_application_process
+  - action: utter_application_process
+  - user: "and visas?"
+    intent: ask_visa_requirements
+  - action: action_get_visa_info
+  - slot_was_set:
+    - current_topic: "visa"
+  - user: "and accommodation?"
+    intent: ask_housing
+  - action: action_get_housing_info
+  - slot_was_set:
+    - current_topic: "housing"
+
+- story: "45. University search with academic level"
+  steps:
+  - user: "find me a [master](academic_level) in [physics](field_of_study)"
+    intent: ask_university_recommendations
+  - action: university_search_form
+  - active_loop: university_search_form
+  - slot_was_set:
+    - academic_level: "master"
+  - slot_was_set:
+    - field_of_study: "physics"
+  - user: "in [Germany](country)"
+    intent: inform_country 
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "46. Short financial question"
+  steps:
+  - user: "budget for [Belgium](country)?"
+    intent: ask_finances
+  - slot_was_set:
+    - country: "Belgium"
+  - action: action_budget_calculator
+
+
+- story: "48. Asks about country by city, then asks for visa for that country"
+  steps:
+  - user: "tell me about [Budapest](city)"
+    intent: ask_country_info
+  - action: action_get_country_info
+  - slot_was_set:
+    - country: "Hungary"
+    - current_topic: "country_info"
+  - user: "and for the visa?"
+    intent: ask_visa_requirements
+  - action: action_get_visa_info
+  - slot_was_set:
+    - current_topic: "visa"
+
+- story: "49. User asks about two different countries consecutively"
+  steps:
+  - user: "tell me about [Norway](country)"
+    intent: ask_country_info
+  - slot_was_set:
+    - country: "Norway"
+  - action: action_get_country_info
+  - slot_was_set:
+    - current_topic: "country_info"
+  - user: "and what about [Austria](country)?"
+    intent: inform_contextual
+  - slot_was_set:
+    - country: "Austria"
+  - action: action_handle_contextual_question
+
+- story: "50. A full happy path starting with a greeting"
+  steps:
+  - user: "hello"
+    intent: greet
+  - action: utter_greet
+  - user: "find marketing programs in spain"
+    intent: ask_university_recommendations
+    entities:
+    - country: "Spain"
+    - field_of_study: "marketing"
+  - action: university_search_form
+  - active_loop: university_search_form
+  - slot_was_set:
+    - country: "Spain"
+  - slot_was_set:
+    - field_of_study: "marketing"
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+  - user: "perfect"
+    intent: affirm
+  - action: utter_happy_to_help
+
+- story: "51. Asks about budget using a city, then affirms, then asks for a joke"
+  steps:
+  - user: "how much to live in [Dublin](city)?"
+    intent: ask_finances
+  - action: action_budget_calculator
+  - slot_was_set:
+    - country: "Ireland"
+    - current_topic: "finances"
+  - user: "sounds good"
+    intent: affirm
+  - action: utter_happy_to_help
+  - user: "now make me laugh"
+    intent: ask_for_a_joke
+  - action: utter_joke
+
+- story: "52. Complex flow starting with a vague search"
+  steps:
+  - user: "recommend a university"
+    intent: ask_university_recommendations
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "for [medicine](field_of_study)"
+    intent: inform_field_of_study
+  - action: university_search_form
+  - active_loop: university_search_form
+  - slot_was_set:
+    - field_of_study: "medicine"
+  - user: "in [Warsaw](city)"
+    intent: inform_country 
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+  - user: "thanks, now can i have a checklist for there?"
+    intent: ask_practical_info
+  - action: action_practical_checklist
+  - slot_was_set:
+    - country: "Poland"
+    - current_topic: "practical"
+
+- story: "53. User asks about country, then asks about budget for that same country"
+  steps:
+  - user: "Tell me about [Ireland](country)"
+    intent: ask_country_info
+  - slot_was_set:
+    - country: "Ireland"
+  - action: action_get_country_info
+  - slot_was_set:
+    - current_topic: "country_info"
+  - user: "What about the budget there?"
+    intent: ask_finances
+  - action: action_budget_calculator
+  - slot_was_set:
+    - current_topic: "finances"
+
+- story: "54. User sets country, then asks for checklist for it"
+  steps:
+  - user: "hi there"
+    intent: greet
+  - action: utter_greet
+  - user: "tell me about the [Czech Republic](country)"
+    intent: ask_country_info
+  - slot_was_set:
+    - country: "Czech Republic"
+  - action: action_get_country_info
+  - slot_was_set:
+    - current_topic: "country_info"
+  - user: "ok, do you have a checklist for it?"
+    intent: ask_practical_info
+  - action: action_practical_checklist
+  - slot_was_set:
+    - current_topic: "practical"
+
+- story: "55. User asks about budget by city, then follows up on visas for the inferred country"
+  steps:
+  - user: "what is the budget for [Copenhagen](city)?"
+    intent: ask_finances
+  - action: action_budget_calculator
+  - slot_was_set:
+    - country: "Denmark"
+    - current_topic: "finances"
+  - user: "And what about the visa for that country?"
+    intent: ask_visa_requirements
+  - action: action_get_visa_info
+  - slot_was_set:
+    - current_topic: "visa"
+
+- story: "56. User asks about housing, finances for a country, then general eligibility"
+  steps:
+  - user: "How is the housing?"
+    intent: ask_housing
+  - action: action_get_housing_info
+  - slot_was_set:
+    - current_topic: "housing"
+  - user: "how much money would I need in [Greece](country)?"
+    intent: ask_finances
+  - slot_was_set:
+    - country: "Greece"
+  - action: action_budget_calculator
+  - slot_was_set:
+    - current_topic: "finances"
+  - user: "and who can apply?"
+    intent: ask_eligibility
+  - action: utter_eligibility
+
+- story: "57. Form happy path starting with greeting (variation)"
+  steps:
+  - user: "good morning"
+    intent: greet
+  - action: utter_greet
+  - user: "i want to find programs for [biology](field_of_study) in [Portugal](country)"
+    intent: ask_university_recommendations
+  - action: university_search_form
+  - active_loop: university_search_form
+  - slot_was_set:
+    - country: "Portugal"
+  - slot_was_set:
+    - field_of_study: "biology"
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "58. Form where user corrects the field of study mid-form"
+  steps:
+  - user: "find me unis in [France](country)"
+    intent: ask_university_recommendations
+  - action: university_search_form
+  - active_loop: university_search_form
+  - slot_was_set:
+    - country: "France"
+  - user: "I'm interested in [law](field_of_study)"
+    intent: inform_field_of_study
+  - action: university_search_form
+  - active_loop: university_search_form
+  - slot_was_set:
+    - field_of_study: "law"
+  - user: "actually, I meant [legal studies](field_of_study)"
+    intent: inform_field_of_study
+  - action: university_search_form
+  - slot_was_set:
+    - field_of_study: "legal studies"
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "59. Form where user corrects the country mid-form"
+  steps:
+  - user: "find marketing programs"
+    intent: ask_university_recommendations
+    entities:
+    - field_of_study: "marketing"
+  - action: university_search_form
+  - active_loop: university_search_form
+  - slot_was_set:
+    - field_of_study: "marketing"
+  - user: "in [Spain](country)"
+    intent: inform_country
+  - action: university_search_form
+  - active_loop: university_search_form
+  - slot_was_set:
+    - country: "Spain"
+  - user: "no wait, let's do [Portugal](country) instead"
+    intent: inform_country
+  - action: university_search_form
+  - slot_was_set:
+    - country: "Portugal"
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "60. User starts with a greeting, then launches into a form request with city inference"
+  steps:
+  - user: "hey"
+    intent: greet
+  - action: utter_greet
+  - user: "Find schools in [Stockholm](city) for [sociology](field_of_study)"
+    intent: ask_university_recommendations
+  - action: university_search_form
+  - active_loop: university_search_form
+  - slot_was_set:
+    - country: "Sweden"
+  - slot_was_set:
+    - field_of_study: "sociology"
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "61. Form where bot has to ask for both slots"
+  steps:
+  - user: "can you recommend a university?"
+    intent: ask_university_recommendations
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "for [Finland](country)"
+    intent: inform_country
+  - action: university_search_form
+  - active_loop: university_search_form
+  - slot_was_set:
+    - country: "Finland"
+  - user: "for [education](field_of_study)"
+    intent: inform_field_of_study
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "63. User asks about academics, then housing, then visa"
+  steps:
+  - user: "hello"
+    intent: greet
+  - action: utter_greet
+  - user: "what are the academic rules"
+    intent: ask_academics
+  - action: action_get_academics_info
+  - slot_was_set:
+    - current_topic: "academics"
+  - user: "how is housing"
+    intent: ask_housing
+  - action: action_get_housing_info
+  - slot_was_set:
+    - current_topic: "housing"
+  - user: "what about visa"
+    intent: ask_visa_requirements
+  - action: action_get_visa_info
+  - slot_was_set:
+    - current_topic: "visa"
+
+- story: "64. User asks about a city, then asks for a joke"
+  steps:
+  - user: "tell me about [Amsterdam](city)"
+    intent: ask_country_info
+  - action: action_get_country_info
+  - slot_was_set:
+    - country: "Netherlands"
+    - current_topic: "country_info"
+  - user: "tell me a joke"
+    intent: ask_for_a_joke
+  - action: utter_joke
+
+- story: "65. User asks about finances, then eligibility"
+  steps:
+  - user: "What's the budget for [Norway](country)?"
+    intent: ask_finances
+  - slot_was_set:
+    - country: "Norway"
+  - action: action_budget_calculator
+  - slot_was_set:
+    - current_topic: "finances"
+  - user: "ok am i eligible"
+    intent: ask_eligibility
+  - action: utter_eligibility
+
+- story: "66. User has a conversation then hits a fallback and recovers"
+  steps:
+  - user: "hi"
+    intent: greet
+  - action: utter_greet
+  - user: "how do I apply"
+    intent: ask_application_process
+  - action: utter_application_process
+  - user: "what is the best restaurant there"
+    intent: out_of_scope
+  - action: utter_empathetic_fallback
+  - user: "oh okay, sorry. what about housing?"
+    intent: ask_housing
+  - action: action_get_housing_info
+  - slot_was_set:
+    - current_topic: "housing"
+
+- story: "67. User asks about two different countries, then asks for a budget for the second one"
+  steps:
+  - user: "tell me about [Hungary](country)"
+    intent: ask_country_info
+  - slot_was_set:
+    - country: "Hungary"
+  - action: action_get_country_info
+  - slot_was_set:
+    - current_topic: "country_info"
+  - user: "now tell me about [Austria](country)"
+    intent: ask_country_info
+  - slot_was_set:
+    - country: "Austria"
+  - action: action_get_country_info
+  - slot_was_set:
+    - current_topic: "country_info"
+  - user: "what's the budget like for austria?"
+    intent: ask_finances
+  - action: action_budget_calculator
+  - slot_was_set:
+    - current_topic: "finances"
+
+- story: "68. User provides unmappable city for budget, then provides a valid country"
+  steps:
+  - user: "What's the budget for [Thessaloniki](city)?"
+    intent: ask_finances
+  - action: action_budget_calculator
+  - user: "I meant in [Greece](country)"
+    intent: inform_country
+  - slot_was_set:
+    - country: "Greece"
+  - action: action_budget_calculator
+
+- story: "69. User provides unmappable city for checklist, then clarifies country"
+  steps:
+  - user: "checklist for [Mykonos](city)"
+    intent: ask_practical_info
+  - action: action_practical_checklist
+  - user: "[Greece](country)"
+    intent: inform_country
+  - slot_was_set:
+    - country: "Greece"
+  - action: action_practical_checklist
+
+- story: "70. User provides invalid country in form, then provides a valid one"
+  steps:
+  - user: "find me programs in [chemistry](field_of_study)"
+    intent: ask_university_recommendations
+  - action: university_search_form
+  - active_loop: university_search_form
+  - slot_was_set:
+    - field_of_study: "chemistry"
+  - user: "in [Atlantis](country)"
+    intent: inform_country
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "ok how about [Germany](country)"
+    intent: inform_country
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "71. User asks a question that sets a slot, then asks another question that uses that slot"
+  steps:
+  - user: "What is the budget for [Latvia](country)?"
+    intent: ask_finances
+  - slot_was_set:
+    - country: "Latvia"
+  - action: action_budget_calculator
+  - slot_was_set:
+    - current_topic: "finances"
+  - user: "ok thanks, can you give me the checklist for there?"
+    intent: ask_practical_info
+  - action: action_practical_checklist
+  - slot_was_set:
+    - current_topic: "practical"
+
+- story: "72. User asks for a checklist, then asks about finances for a different country"
+  steps:
+  - user: "checklist for [Lithuania](country)"
+    intent: ask_practical_info
+  - slot_was_set:
+    - country: "Lithuania"
+  - action: action_practical_checklist
+  - slot_was_set:
+    - current_topic: "practical"
+  - user: "ok now budget for [Estonia](country)"
+    intent: ask_finances
+  - slot_was_set:
+    - country: "Estonia"
+  - action: action_budget_calculator
+  - slot_was_set:
+    - current_topic: "finances"
+
+- story: "73. Meandering conversation"
+  steps:
+  - user: "hi"
+    intent: greet
+  - action: utter_greet
+  - user: "am i eligible"
+    intent: ask_eligibility
+  - action: utter_eligibility
+  - user: "ok what can you do"
+    intent: ask_what_can_you_do
+  - action: utter_apologize_and_clarify_capabilities
+  - user: "tell me a joke"
+    intent: ask_for_a_joke
+  - action: utter_joke
+
+- story: "75. Two simple questions followed by a form"
+  steps:
+  - user: "what about language"
+    intent: ask_language_requirements
+  - action: action_get_language_info
+  - slot_was_set:
+    - current_topic: "language"
+  - user: "how long can i stay"
+    intent: ask_duration
+  - action: action_get_duration_info
+  - slot_was_set:
+    - current_topic: "duration"
+  - user: "find me unis in [Croatia](country) for [marine biology](field_of_study)"
+    intent: ask_university_recommendations
+  - action: university_search_form
+  - active_loop: university_search_form
+  - slot_was_set:
+    - country: "Croatia"
+  - slot_was_set:
+    - field_of_study: "marine biology"
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "76. Starts with who are you, then asks about a specific city's info"
+  steps:
+  - user: "who are you"
+    intent: ask_who_are_you
+  - action: utter_who_are_you
+  - user: "tell me about [Brussels](city)"
+    intent: ask_country_info
+  - action: action_get_country_info
+  - slot_was_set:
+    - country: "Belgium"
+    - current_topic: "country_info"
+
+- story: "79. Bot fails to get info and asks for clarification"
+  steps:
+  - user: "what is the budget"
+    intent: ask_finances
+  - action: action_budget_calculator
+  - user: "for [Spain](country)"
+    intent: inform_country
+  - slot_was_set:
+    - country: "Spain"
+  - action: action_budget_calculator
+
+- story: "80. Bot needs field of study for form"
+  steps:
+  - user: "find schools in [Italy](country)"
+    intent: ask_university_recommendations
+  - action: university_search_form
+  - active_loop: university_search_form
+  - slot_was_set:
+    - country: "Italy"
+  - user: "in the field of [arts](field_of_study)"
+    intent: inform_field_of_study
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "82. User provides country and field of study to start a search"
+  steps:
+  - user: "I'm thinking about studying [business](field_of_study) in [Spain](country)."
+    intent: ask_university_recommendations 
+  - action: university_search_form
+  - active_loop: university_search_form
+  - slot_was_set: 
+    - country: "Spain"
+    - field_of_study: "business"
+  - action: university_search_form 
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "83. User affirms out of context and recovers"
+  steps:
+  - user: "hi"
+    intent: greet
+  - action: utter_greet
+  - user: "yes"
+    intent: affirm
+  - action: utter_empathetic_fallback
+  - user: "Sorry, I meant can you tell me what is erasmus?"
+    intent: ask_erasmus_info
+  - action: action_get_erasmus_overview_and_reset
+
+- story: "84. User denies after getting info"
+  steps:
+  - user: "Tell me about housing"
+    intent: ask_housing
+  - action: action_get_housing_info
+  - slot_was_set:
+    - current_topic: "housing"
+  - user: "no"
+    intent: deny
+  - action: utter_offer_help_elsewhere
+
+- story: "85. Rigorous context switching test"
+  steps:
+  - user: "What's the budget for [Germany](country)?"
+    intent: ask_finances
+  - slot_was_set:
+    - country: "Germany"
+  - action: action_budget_calculator
+  - slot_was_set:
+    - current_topic: "finances"
+  - user: "What about housing in [France](country)?"
+    intent: ask_housing
+  - slot_was_set:
+    - country: "France"
+  - action: action_get_housing_info
+  - slot_was_set:
+    - current_topic: "housing"
+  - user: "Can I get a checklist for that last country?"
+    intent: ask_practical_info
+  - action: action_practical_checklist
+  - slot_was_set:
+    - current_topic: "practical"
+
+- story: "86. Context memory after a deactivated form"
+  steps:
+  - user: "Tell me about [Italy](country)"
+    intent: ask_country_info
+  - slot_was_set:
+    - country: "Italy"
+  - action: action_get_country_info
+  - slot_was_set:
+    - current_topic: "country_info"
+  - user: "Now find me schools for [engineering](field_of_study) in [Spain](country)"
+    intent: ask_university_recommendations
+  - action: university_search_form
+  - active_loop: university_search_form
+  - slot_was_set:
+    - country: "Spain"
+  - slot_was_set:
+    - field_of_study: "engineering"
+  - user: "no nevermind, cancel that search"
+    intent: deny
+  - action: action_cancel_form_and_clear_slots
+  - active_loop: null
+  - action: utter_offer_help_elsewhere
+  - user: "Okay, what's the budget like?"
+    intent: ask_finances
+  - action: action_budget_calculator
+
+- story: "87. User asks the same question twice"
+  steps:
+  - user: "Do I need a visa"
+    intent: ask_visa_requirements
+  - action: action_get_visa_info
+  - slot_was_set:
+    - current_topic: "visa"
+  - user: "are you sure? tell me again about visas"
+    intent: ask_visa_requirements
+  - action: action_get_visa_info
+  - slot_was_set:
+    - current_topic: "visa"
+
+- story: "88. Meta-question (bot_challenge) in the middle of a flow"
+  steps:
+  - user: "how do I apply"
+    intent: ask_application_process
+  - action: utter_application_process
+  - user: "wait are you a bot?"
+    intent: bot_challenge
+  - action: utter_iamabot
+  - user: "okay, now tell me about housing"
+    intent: ask_housing
+  - action: action_get_housing_info
+  - slot_was_set:
+    - current_topic: "housing"
+
+- story: "89. User asks a valid question with an invalid entity (budget)"
+  steps:
+  - user: "what is the budget for [Atlantis](country)?"
+    intent: ask_finances
+  - action: action_budget_calculator
+
+- story: "90. User asks a valid question with an invalid entity (country info)"
+  steps:
+  - user: "tell me about [Middle Earth](country)"
+    intent: ask_country_info
+  - action: action_get_country_info
+
+- story: "93. User asks a series of rapid-fire questions"
+  steps:
+  - user: "am i eligible?"
+    intent: ask_eligibility
+  - action: utter_eligibility
+  - user: "how long are the stays?"
+    intent: ask_duration
+  - action: action_get_duration_info
+  - slot_was_set:
+    - current_topic: "duration"
+  - user: "what about language?"
+    intent: ask_language_requirements
+  - action: action_get_language_info
+  - slot_was_set:
+    - current_topic: "language"
+
+- story: "94. User asks for info on a city, then asks for the budget for that city"
+  steps:
+  - user: "tell me about [Rome](city)"
+    intent: ask_country_info
+  - action: action_get_country_info
+  - slot_was_set:
+    - country: "Italy"
+    - current_topic: "country_info"
+  - user: "what is the budget for [Rome](city)?"
+    intent: ask_finances
+  - action: action_budget_calculator
+  - slot_was_set:
+    - current_topic: "finances"
+
+- story: "95. User asks for a checklist, then asks for the budget for the same context"
+  steps:
+  - user: "can i have a checklist for [Portugal](country)?"
+    intent: ask_practical_info
+  - slot_was_set:
+    - country: "Portugal"
+  - action: action_practical_checklist
+  - slot_was_set:
+    - current_topic: "practical"
+  - user: "and the finances?"
+    intent: ask_finances
+  - action: action_budget_calculator
+  - slot_was_set:
+    - current_topic: "finances"
+
+- story: "98. User asks for university recommendations then immediately denies"
+  steps:
+  - user: "find me a school"
+    intent: ask_university_recommendations
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "no sorry, cancel"
+    intent: deny
+  - action: action_cancel_form_and_clear_slots
+  - active_loop: null
+  - action: utter_offer_help_elsewhere
+
+- story: "99. Form fills an unrequested slot"
+  steps:
+  - user: "I want to find a university"
+    intent: ask_university_recommendations
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "my major is [business](field_of_study)"
+    intent: inform_field_of_study 
+  - action: university_search_form
+  - active_loop: university_search_form
+  - slot_was_set:
+    - field_of_study: "business"
+  - user: "in [Spain](country)"
+    intent: inform_country
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "100. Chained contextual questions"
+  steps:
+  - user: "budget for [Spain](country)?"
+    intent: ask_finances
+  - slot_was_set:
+    - country: "Spain"
+  - action: action_budget_calculator
+  - slot_was_set:
+    - current_topic: "finances"
+  - user: "and [Germany](country)?"
+    intent: inform_contextual
+  - slot_was_set:
+    - country: "Germany"
+  - action: action_handle_contextual_question
+  - slot_was_set:
+    - current_topic: "finances"
+  - user: "what about [Poland](country)"
+    intent: inform_contextual
+  - slot_was_set:
+    - country: "Poland"
+  - action: action_handle_contextual_question
+  - slot_was_set:
+    - current_topic: "finances"
+
+- story: "101. Topic switch then contextual follow-up"
+  steps:
+  - user: "budget for [Spain](country)"
+    intent: ask_finances
+  - slot_was_set:
+    - country: "Spain"
+  - action: action_budget_calculator
+  - slot_was_set:
+    - current_topic: "finances"
+  - user: "Okay, now about housing in [Germany](country)?"
+    intent: ask_housing
+  - slot_was_set:
+    - country: "Germany"
+  - action: action_get_housing_info
+  - slot_was_set:
+    - current_topic: "housing"
+  - user: "and for [Italy](country)?"
+    intent: inform_contextual
+  - slot_was_set:
+    - country: "Italy"
+  - action: action_handle_contextual_question
+
+- story: "102. User ignores a question and changes topic"
+  steps:
+  - user: "How much is the grant?"
+    intent: ask_finances
+  - action: action_budget_calculator
+  - user: "Tell me a joke instead"
+    intent: ask_for_a_joke
+  - action: utter_joke
+  - user: "Okay now really, what is the budget in [Greece](country)?"
+    intent: ask_finances
+  - slot_was_set:
+    - country: "Greece"
+  - action: action_budget_calculator
+
+- story: "103. User asks about a city, then another topic for the inferred country"
+  steps:
+  - user: "Tell me about housing in [Berlin](city)."
+    intent: ask_housing
+  - action: action_get_housing_info
+  - slot_was_set:
+    - current_topic: "housing"
+  - user: "Okay, what's the budget like there?"
+    intent: ask_finances
+  - action: action_budget_calculator
+  - slot_was_set:
+    - country: "Germany"
+    - current_topic: "finances"
+
+- story: "104. Form starts with a vague request"
+  steps:
+  - user: "Can you help me find a school?"
+    intent: ask_university_recommendations
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "I'm thinking about Germany"
+    intent: inform_country
+    entities:
+    - country: "Germany"
+  - user: "for business"
+    intent: inform_field_of_study
+    entities:
+    - field_of_study: "business"
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "105. Form starts with only an academic level provided"
+  steps:
+  - user: "I need to find a master program"
+    intent: ask_university_recommendations
+    entities:
+    - academic_level: "master"
+  - action: university_search_form
+  - active_loop: university_search_form
+  - slot_was_set:
+    - academic_level: "master"
+  - user: "in France"
+    intent: inform_country 
+    entities:
+    - country: "France"
+  - user: "engineering"
+    intent: inform_field_of_study 
+    entities:
+    - field_of_study: "engineering"
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "106. User interrupts form with a bot_challenge and recovers (Explicit)"
+  steps:
+  - user: "find me universities in Portugal"
+    intent: ask_university_recommendations
+    entities:
+    - country: "Portugal"
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "Wait, are you a bot?"
+    intent: bot_challenge
+  - action: utter_iamabot
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "Ok, for engineering"
+    intent: inform_field_of_study
+    entities:
+    - field_of_study: "engineering"
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "109. User interrupts form with a joke and then resumes (Explicit)"
+  steps:
+  - user: "Find me universities for engineering"
+    intent: ask_university_recommendations
+    entities:
+    - field_of_study: "engineering"
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "tell me a joke first"
+    intent: ask_for_a_joke
+  - action: utter_joke
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "haha okay, in Germany"
+    intent: inform_country 
+    entities:
+    - country: "Germany"
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "110. User asks for a list of countries while in the form (Explicit)"
+  steps:
+  - user: "I want to find a university"
+    intent: ask_university_recommendations
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "which countries can I choose from?"
+    intent: ask_countries
+  - action: utter_countries_list
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "ok, I choose Spain"
+    intent: inform_country
+    entities:
+    - country: "Spain"
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "for business"
+    intent: inform_field_of_study
+    entities:
+    - field_of_study: "business"
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "111. User interrupts form with who_are_you and resumes (Explicit)"
+  steps:
+  - user: "Find a school"
+    intent: ask_university_recommendations
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "who are you?"
+    intent: ask_who_are_you
+  - action: utter_who_are_you
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "Okay, I want to go to Italy"
+    intent: inform_country
+    entities:
+    - country: "Italy"
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "for arts"
+    intent: inform_field_of_study
+    entities:
+    - field_of_study: "arts"
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "112. User interrupts form with ask_eligibility and resumes (Explicit)"
+  steps:
+  - user: "Find me universities in Spain"
+    intent: ask_university_recommendations
+    entities:
+    - country: "Spain"
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "Am I eligible for Erasmus?"
+    intent: ask_eligibility
+  - action: utter_eligibility
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "Okay, for marketing"
+    intent: inform_field_of_study
+    entities:
+    - field_of_study: "marketing"
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "113. User interrupts form with ask_what_can_you_do and resumes (Explicit)"
+  steps:
+  - user: "I want to find a university for biology"
+    intent: ask_university_recommendations
+    entities:
+    - field_of_study: "biology"
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "What else can you do for me?"
+    intent: ask_what_can_you_do
+  - action: utter_apologize_and_clarify_capabilities
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "Alright, in Germany then"
+    intent: inform_country
+    entities:
+    - country: "Germany"
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "114. User interrupts form with ask_application_process and resumes (Explicit)"
+  steps:
+  - user: "Find a school in Portugal"
+    intent: ask_university_recommendations
+    entities:
+    - country: "Portugal"
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "How do I apply for Erasmus?"
+    intent: ask_application_process
+  - action: utter_application_process
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "Okay, for computer science"
+    intent: inform_field_of_study
+    entities:
+    - field_of_study: "computer science"
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "115. User explicitly restarts conversation during active form (Scenario 1)"
+  steps:
+  - user: "Find me universities for design"
+    intent: ask_university_recommendations
+    entities:
+    - field_of_study: "design"
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "I want to start over"
+    intent: restart_conversation
+  - action: utter_restarted
+  - action: action_restart_conversation
+  - active_loop: null
+  - action: utter_greet
+
+- story: "116. User explicitly restarts conversation during active form (Scenario 2)"
+  steps:
+  - user: "recommend a university in France"
+    intent: ask_university_recommendations
+    entities:
+    - country: "France"
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "reset this conversation"
+    intent: restart_conversation
+  - action: utter_restarted
+  - action: action_restart_conversation
+  - active_loop: null
+  - action: utter_greet
+
+- story: "117. User explicitly restarts conversation during active form (Scenario 3 - with other slots set)"
+  steps:
+  - user: "What's the budget for Germany?"
+    intent: ask_finances
+    entities:
+    - country: "Germany"
+  - action: action_budget_calculator
+  - slot_was_set:
+    - country: "Germany"
+  - slot_was_set:
+    - current_topic: "finances"
+  - user: "Now find me universities"
+    intent: ask_university_recommendations
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "let's start again"
+    intent: restart_conversation
+  - action: utter_restarted
+  - action: action_restart_conversation
+  - active_loop: null
+  - action: utter_greet
+
+- story: "Form happy path - Step-by-step filling"
+  steps:
+  - user: "Find me a university"
+    intent: ask_university_recommendations
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "France"
+    intent: inform_country
+    entities:
+    - country: "France"
+  - action: university_search_form
+  - active_loop: university_search_form
+  - slot_was_set:
+    - country: "France"
+  - user: "for business"
+    intent: inform_field_of_study
+    entities:
+    - field_of_study: "business"
+  - action: university_search_form
+  - active_loop: null
+  - slot_was_set:
+    - field_of_study: "business"
+  - action: action_find_courses_and_universities
+
+- story: "User specifies topic then country for that topic"
+  steps:
+  - user: "Tell me about housing"
+    intent: ask_housing
+  - action: action_get_housing_info
+  - slot_was_set:
+    - current_topic: "housing"
+  - user: "in the Netherlands"
+    intent: inform_country
+    entities:
+    - country: "Netherlands"
+  - action: action_handle_contextual_question
+  - slot_was_set:
+    - country: "Netherlands"
+
+- story: "Unhappy Path - Topic then Invalid Country"
+  steps:
+  - user: "Tell me about the budget"
+    intent: ask_finances
+  - action: action_budget_calculator
+  - user: "for the country of Narnia"
+    intent: inform_country
+    entities:
+    - country: "Narnia"
+  - action: action_budget_calculator
+  - user: "oops, I meant Poland"
+    intent: inform_country
+    entities:
+    - country: "Poland"
+  - action: action_budget_calculator
+  - slot_was_set:
+    - country: "Poland"
+  - slot_was_set:
+    - current_topic: "finances"
+
+- story: "Form Unhappy Path - Invalid Country Provided then Corrected"
+  steps:
+  - user: "I want to find a university"
+    intent: ask_university_recommendations
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "in Atlantis"
+    intent: inform_country
+    entities:
+    - country: "Atlantis"
+  - action: validate_university_search_form
+  - slot_was_set:
+    - country: null
+  - action: university_search_form
+  - user: "My mistake. How about in [Spain](country)?"
+    intent: inform_country
+    entities:
+    - country: "Spain"
+  - action: validate_university_search_form
+  - slot_was_set:
+    - country: "Spain"
+  - action: university_search_form
+  - user: "I want to study [business](field_of_study)"
+    intent: inform_field_of_study
+    entities:
+    - field_of_study: "business"
+  - action: validate_university_search_form
+  - slot_was_set:
+    - field_of_study: "business"
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+- story: "120. User interrupts form with ask_application_process and resumes (Explicit)"
+  steps:
+  - user: "find me a school for arts"
+    intent: ask_university_recommendations
+    entities:
+    - field_of_study: "arts"
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "Wait, am i eligible for Erasmus?"
+    intent: ask_eligibility
+  - action: utter_eligibility
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "Okay, for Greece"
+    intent: inform_country
+    entities:
+    - country: "Greece"
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+
+
+- story: User asks for country info after failed university search
+  steps:
+  - user: "Recommend me a school for medicine"
+    intent: ask_university_recommendations
+  - action: university_search_form
+  - active_loop: university_search_form
+  - user: "in Italy"
+    intent: inform_country
+  - action: validate_university_search_form
+  - slot_was_set:
+    - country: "Italy"
+  - action: university_search_form
+  - active_loop: null
+  - action: action_find_courses_and_universities
+  - user: "yes tell me about it"
+    intent: affirm
+  - action: action_get_country_info
