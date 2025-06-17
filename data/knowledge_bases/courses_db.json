@@ -1,0 +1,38 @@
+{
+    "engineering": {
+        "germany": ["M.Sc. Mechanical Engineering", "B.Sc. Automotive Systems", "M.Sc. Electrical Engineering & Information Technology"],
+        "spain": ["B.Eng. Industrial Engineering", "M.Eng. Civil Engineering"],
+        "france": ["Graduate Degree in Engineering (Diplôme d'Ingénieur)", "M.Sc. in Aerospace Engineering"]
+    },
+    "business": {
+        "germany": ["Mannheim Master in Management", "Master in Finance"],
+        "spain": ["International MBA", "MSc in Marketing Management"],
+        "france": ["Master in Management (Grande École)", "Global MBA"],
+        "netherlands": ["BSc/MSc International Business Administration"]
+    },
+    "arts": {
+        "germany": ["Fine Arts Program (Malerei/Grafik)", "Visual Communication"],
+        "spain": ["B.A. in Fine Arts", "M.A. in Cultural Management"],
+        "france": ["Fine Arts Diploma (Diplôme National d'Arts)", "M.A. in Art History and Curatorship"]
+    },
+    "computer science": {
+        "germany": ["M.Sc. in Informatics (Computer Science)", "M.Sc. in Data Engineering and Analytics"],
+        "poland": ["B.Sc/M.Sc in Computer Science", "Specialization in Cybersecurity"]
+    },
+    "medicine": {
+        "poland": ["6-year MD Program in English", "5-year Dentistry Program in English"],
+        "czech republic": ["General Medicine (6-year M.D.)", "Dentistry (5-year DMD)"]
+    },
+    "architecture": {
+        "italy": ["M.Sc. in Architecture and Urban Design", "B.Sc. in Architectural Design"],
+        "france": ["State Diploma of Architect (DEA)", "Master's in Urban Planning"]
+    },
+    "physics": {
+        "germany": ["M.Sc. in Physics", "M.Sc. in Astrophysics", "B.Sc. in Physics"],
+        "switzerland": ["Master in Physics", "Doctoral Program in Physics"]
+    },
+    "environmental science": {
+        "norway": ["M.Sc. in Environmental Science", "Master in Ecology and Natural Resource Management"],
+        "denmark": ["M.Sc. in Climate Change", "Sustainable Design Engineering"]
+    }
+}
