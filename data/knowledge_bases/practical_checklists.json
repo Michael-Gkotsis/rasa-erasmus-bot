@@ -1,0 +1,23 @@
+{
+    "general": [
+        "✅ Apply for Erasmus at your home university",
+        "✅ Get accepted by host university", 
+        "✅ Complete learning agreement",
+        "✅ Arrange accommodation",
+        "✅ Get travel insurance (e.g., EHIC card for EU citizens)",
+        "✅ Open a local or online-friendly bank account (if needed)",
+        "✅ Learn basic local phrases ('Hello', 'Thank you', 'Goodbye')",
+        "✅ Connect with other Erasmus students online (e.g., Facebook groups)",
+        "✅ Make digital and physical copies of essential documents (passport, acceptance letter)",
+        "✅ Plan your budget and check grant payment schedules"
+    ],
+    "country_specific": {
+        "germany": ["✅ Register at local authorities (Anmeldung) within 14 days", "✅ Get a semester ticket for public transport", "✅ Learn about the Pfand (bottle deposit) system"],
+        "spain": ["✅ Apply for your NIE number if staying over 90 days", "✅ Be aware of 'siesta' hours when shops may close in the afternoon", "✅ Get a local SIM card for better mobile data"],
+        "france": ["✅ Apply for CAF housing allowance if eligible", "✅ Get a French student ID for discounts", "✅ Understand that strikes (grèves) can affect transport"],
+        "italy": ["✅ Apply for your 'Codice Fiscale' (tax code) for contracts and official paperwork", "✅ Learn the local coffee etiquette (e.g., cappuccino is for mornings)", "✅ Be prepared for bureaucracy to take time"],
+        "portugal": ["✅ Get a 'Cartão de Cidadão' for foreigners if needed", "✅ Explore the local markets for fresh produce", "✅ Get a public transport card like 'Viva Viagem' in Lisbon"],
+        "netherlands": ["✅ Get a second-hand bike and good locks", "✅ Register with the municipality (gemeente) for your BSN number", "✅ Learn the cycling rules and hand signals"],
+        "poland": ["✅ Get a PESEL number if required for your stay", "✅ Exchange some money to Polish Złoty (PLN)", "✅ Try pierogi and other traditional dishes"]
+    }
+}
