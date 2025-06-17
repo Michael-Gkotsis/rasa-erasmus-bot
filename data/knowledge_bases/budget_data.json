@@ -1,1 +1,22 @@
-
+{
+    "germany": {"low": 800, "medium": 1000, "high": 1300},
+    "spain": {"low": 600, "medium": 800, "high": 1100},
+    "france": {"low": 900, "medium": 1200, "high": 1600},
+    "italy": {"low": 700, "medium": 900, "high": 1200},
+    "netherlands": {"low": 900, "medium": 1200, "high": 1500},
+    "sweden": {"low": 1000, "medium": 1300, "high": 1700},
+    "portugal": {"low": 500, "medium": 700, "high": 900},
+    "poland": {"low": 400, "medium": 600, "high": 800},
+    "czech republic": {"low": 500, "medium": 700, "high": 900},
+    "austria": {"low": 800, "medium": 1100, "high": 1400},
+    "ireland": {"low": 1000, "medium": 1300, "high": 1600},
+    "switzerland": {"low": 1500, "medium": 2000, "high": 2500},
+    "denmark": {"low": 1000, "medium": 1400, "high": 1800},
+    "hungary": {"low": 450, "medium": 650, "high": 900},
+    "norway": {"low": 1200, "medium": 1600, "high": 2000},
+    "belgium": {"low": 850, "medium": 1100, "high": 1400},
+    "greece": {"low": 600, "medium": 850, "high": 1100},
+    "finland": {"low": 900, "medium": 1200, "high": 1500},
+    "slovenia": {"low": 600, "medium": 800, "high": 1000},
+    "croatia": {"low": 600, "medium": 800, "high": 1100}
+}
