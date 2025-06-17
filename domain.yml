@@ -1,0 +1,229 @@
+version: '3.1'
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - bot_challenge
+  - ask_erasmus_info
+  - ask_eligibility
+  - ask_application_process
+  - ask_countries
+  - ask_country_info
+  - ask_language_requirements
+  - ask_duration
+  - ask_housing
+  - ask_visa_requirements
+  - ask_practical_info
+  - ask_finances
+  - ask_academics
+  - ask_university_recommendations
+  - ask_what_can_you_do
+  - ask_who_are_you
+  - ask_for_a_joke
+  - out_of_scope
+  - inform_contextual 
+  - restart_conversation 
+  - inform_country
+  - inform_field_of_study
+
+entities:
+  - country
+  - program_type
+  - duration
+  - field_of_study
+  - city
+  - budget_range
+  - academic_level
+
+slots:
+  country:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: country
+
+
+  city:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: city
+
+
+  program_type:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: program_type
+
+  field_of_study:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: field_of_study
+
+  budget_range:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: budget_range
+
+  academic_level:
+    type: categorical
+    values:
+      - bachelor
+      - master
+      - phd
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: academic_level
+
+  duration:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: duration
+
+  current_topic:
+    type: categorical
+    values:
+      - country_info
+      - finances
+      - housing
+      - visa
+      - language
+      - duration
+      - academics
+      - practical
+    influence_conversation: true
+    mappings:
+    - type: custom
+
+forms:
+  university_search_form:
+    required_slots:
+      - country
+      - field_of_study
+
+responses:
+  utter_greet:
+  - text: "Hello! I'm your Erasmus information assistant. I can help you with information about Erasmus programs, participating countries, application processes, and more. How can I help you today?"
+
+  utter_goodbye:
+  - text: "Goodbye! Good luck with your Erasmus journey! 🎓✈️"
+
+  utter_iamabot:
+  - text: "I'm the Erasmus Buddy! I'm a bot designed to help you navigate your journey to studying abroad. Think of me as your friendly digital guide. 🤖"
+
+  utter_erasmus_overview:
+  - text: "Erasmus+ is the EU's program to support education, training, youth and sport in Europe. For students, it offers opportunities to study abroad at partner universities for 3-12 months. The program covers 33 countries and provides funding support, academic credit transfer, and cultural exchange experiences."
+
+  utter_eligibility:
+  - text: "To be eligible for Erasmus+, you must: \n1) Be enrolled at a higher education institution that has an Erasmus Charter, \n2) Have completed at least one year of studies, \n3) Be a citizen of an EU country or have permanent residence, \n4) Meet your home institution's academic requirements. Some programs also accept students from partner countries outside the EU."
+
+  utter_application_process:
+  - text: "The Erasmus application process typically involves: \n1) Contact your international office, \n2) Choose destination universities, \n3) Submit application with transcripts and motivation letter, \n4) Get nominated by your home institution, \n5) Apply directly to host university, \n6) Arrange learning agreement, \n7) Complete pre-departure preparations. \nDeadlines are usually in February-March for autumn departures."
+
+  utter_countries_list:
+  - text: "Erasmus+ program countries include all 27 EU member states plus: Iceland, Liechtenstein, North Macedonia, Norway, Serbia, and Turkey. Popular destinations include Germany, Spain, France, Italy, and Portugal. Did any particular one catch your eye, or would you like me to tell you more about a specific country?"
+
+  utter_language_requirements:
+  - text: "Language requirements vary by country and university. Many courses are offered in English, especially at master's level. Some require B2 level proficiency. The Online Language Support (OLS) platform provides free language courses to Erasmus students. Many students also take intensive language courses before or during their stay."
+
+  utter_duration_options:
+  - text: "Erasmus study periods can last from 3 to 12 months. Most students choose one semester (3-5 months) or a full academic year (9-10 months). You can also do multiple shorter stays in different countries, but the total cannot exceed 12 months per study cycle (bachelor's, master's, PhD)."
+
+  utter_academics:
+  - text: "Academically, you must maintain good standing at your home university and complete a 'Learning Agreement' that outlines the courses you'll take abroad. You typically need to earn 15-30 ECTS credits per semester. These credits are then recognized by your home university. The grade conversion system and thesis options vary, so it's best to check with your academic advisor."
+
+  utter_housing_info:
+  - text: "Housing options include: university dormitories (often cheapest), shared apartments with other students, homestays with local families, or private studios. Many universities guarantee accommodation for Erasmus students. Costs vary widely by country and city. Book early as demand is high, especially in popular destinations."
+
+  utter_visa_requirements:
+  - text: "EU citizens don't need visas for Erasmus in EU countries - just a valid ID or passport. Non-EU citizens may need student visas or residence permits. Check requirements with the host country's embassy. Some countries require registration with local authorities upon arrival. Your home university's international office can provide specific guidance."
+
+  utter_offer_help_elsewhere:
+  - text: "Alright, no problem. What else can I help you with? We can discuss finances, housing, academic requirements, or anything else about the Erasmus program."
+
+  utter_ask_country:
+  - text: "Which country are you interested in? For example, Germany, Spain, or Italy?"
+  - text: "Could you tell me which country you're thinking of? Such as France, Poland, or Portugal?"
+
+  utter_ask_field_of_study:
+  - text: "What field of study are you interested in? For example, Business, Engineering, or Computer Science?"
+  - text: "Could you specify your field of study? Like Arts, Medicine, or Law?"
+
+  utter_apologize_and_clarify_capabilities:
+  - text: "I'm sorry, I can't help with that. As an Erasmus assistant, I can answer questions about participating countries, eligibility, the application process, finances, housing, and other practical matters. How can I help with one of those topics?"
+
+  utter_empathetic_fallback:
+  - text: "I'm sorry, it seems I'm not able to help with that right now. Could you please try rephrasing your question?"
+
+  utter_database_error: 
+  - text: "I'm having a little trouble accessing my knowledge base right now. Please try again in a moment."
+
+  utter_who_are_you:
+  - text: "I'm the Erasmus Buddy! I'm a bot designed to help you navigate your journey to studying abroad. Think of me as your friendly digital guide. 🤖"
+
+  utter_joke:
+  - text: "Why did the student bring a ladder to the bar? Because he heard the drinks were on the house! ...Now, where were we? 😅"
+
+  utter_acknowledge_info:
+  - text: "Got it."
+  - text: "Okay, understood."
+  - text: "Perfect, thanks."
+
+  utter_happy_to_help:
+  - text: "Great! Let's continue."
+  - text: "Happy to help!"
+
+  utter_restarted: 
+  - text: "Alright, let's start over from the beginning."
+
+
+actions:
+  - action_get_country_info
+  - action_budget_calculator
+  - action_practical_checklist
+  - validate_university_search_form
+  - action_find_courses_and_universities
+  - action_clear_slots 
+  - utter_greet
+  - utter_goodbye
+  - utter_iamabot
+  - utter_erasmus_overview
+  - utter_eligibility
+  - utter_application_process
+  - utter_countries_list
+  - utter_language_requirements
+  - utter_duration_options
+  - utter_academics
+  - utter_housing_info
+  - utter_visa_requirements
+  - utter_offer_help_elsewhere
+  - utter_ask_country
+  - utter_ask_field_of_study
+  - utter_acknowledge_info
+  - utter_happy_to_help
+  - action_handle_contextual_question
+  - action_get_erasmus_overview_and_reset 
+  - action_get_housing_info               
+  - action_get_visa_info                 
+  - action_get_language_info             
+  - action_get_duration_info            
+  - action_get_academics_info            
+  - action_restart_conversation
+  - action_cancel_form_and_clear_slots
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

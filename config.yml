@@ -1,0 +1,47 @@
+recipe: default.v1
+language: en
+
+pipeline:
+- name: WhitespaceTokenizer
+
+- name: LanguageModelFeaturizer
+  model_name: "bert"
+  model_weights: "sentence-transformers/all-MiniLM-L6-v2"
+
+- name: RegexFeaturizer
+- name: CountVectorsFeaturizer
+  analyzer: "char_wb"
+  min_ngram: 1
+  max_ngram: 4
+- name: CountVectorsFeaturizer
+  analyzer: "word"
+
+- name: DIETClassifier
+  epochs: 100
+  constrain_similarities: true
+  entity_recognition: true
+  tensorboard_log_directory: "./logs/nlu"
+  loss_type: "cross_entropy"
+
+- name: EntitySynonymMapper
+
+- name: FallbackClassifier
+  threshold: 0.4
+  ambiguity_threshold: 0.1
+
+policies:
+- name: RulePolicy
+  core_fallback_threshold: 0.4
+  core_fallback_action_name: "utter_empathetic_fallback"
+  enable_fallback_prediction: true
+
+- name: MemoizationPolicy
+  max_history: 15
+
+- name: TEDPolicy
+  max_history: 15
+  epochs: 100
+  constrain_similarities: true
+  loss_type: 'cross_entropy'
+  tensorboard_log_directory: "./logs/core"
+assistant_id: 20250617-235010-numerous-poltergeist
