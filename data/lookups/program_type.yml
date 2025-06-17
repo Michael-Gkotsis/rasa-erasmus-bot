@@ -1,0 +1,9 @@
+version: "3.1"
+nlu:
+- lookup: program_type
+  examples: |
+    - Erasmus Mundus
+    - short-term mobility
+    - traineeship
+    - student exchange
+    - Blended Intensive Programs
